@@ -161,19 +161,13 @@ if __name__ == "__main__":
 
     # has memory (no metter random or not, it will trival all none overlapped clips)
     trainset = BratsIter(csv_file=os.path.join(data_root, 'IDH_label', 'train_fold_{}.csv'.format(fold)),
-                         data_root = os.path.join(data_root, 'all'),
+                         brats_path = os.path.join(data_root, 'all'),
+                         brats_transform=training_transform,
                          shuffle=True)
 
     # Mean, Std, Max = read_data_mean(fold, trainset)
     # normalize = transforms.Normalize(Mean,Std)
 
-    # train_dataset = BratsIter(brats_prefix=os.path.join(data_root, 'raw', 'data', 'val_x288p-GOPxN'),
-    train_dataset = BratsIter(brats_prefix=os.path.join(data_root, 'raw', 'data', 'val_x288p-GOPxN'),
-                              txt_list=os.path.join(data_root, 'raw', 'list_cvt', 'kinetics_val_avi.txt'),
-                              brats_transform=training_transform,
-                              name='debug',
-                              shuffle_list_seed=2,
-                              )
 
     for i in range(1, 20):
         img, lab = train_dataset.__getitem__(i)
