@@ -102,11 +102,11 @@ class BratsIter(data.Dataset):
 
         # apply brats augmentation
         if self.brats_transform is not None:
-            if idx % 100 == 0:
-                self.brats_transform.set_random_state(seed=idx+int(time.time()))
-            tensor = self.brats_transform(tensor, idx=idx, copy_id=copy_id)
+           # if idx % 100 == 0:
+               # self.brats_transform.set_random_state(seed=idx+int(time.time()))
+            tensor = self.brats_transform(tensor)
 
-        return tensor, label
+        return tensor, label, bratsID 
 
 
 if __name__ == "__main__":
@@ -131,6 +131,9 @@ if __name__ == "__main__":
         Compose,
     )
 
+    d_size, h_size, w_size = 155, 240, 240
+    input_size = [7, 223,223]
+    spacing = (d_size/input_size[0], h_size/input_size[1], w_size/input_size[2])
     training_transform = Compose([
         RescaleIntensity((0, 1)),  # so that there are no negative values for RandomMotion
         RandomMotion(),
@@ -139,7 +142,7 @@ if __name__ == "__main__":
         ZNormalization(masking_method=ZNormalization.mean),
         RandomNoise(),
         ToCanonical(),
-        Resample((4, 4, 4)),
+        Resample(spacing),
         # CropOrPad((48, 60, 48)),
         RandomFlip(axes=(0,)),
         OneOf({
@@ -160,7 +163,7 @@ if __name__ == "__main__":
 
 
     # has memory (no metter random or not, it will trival all none overlapped clips)
-    trainset = BratsIter(csv_file=os.path.join(data_root, 'IDH_label', 'train_fold_{}.csv'.format(fold)),
+    train_dataset = BratsIter(csv_file=os.path.join(data_root, 'IDH_label', 'train_fold_{}.csv'.format(fold)),
                          brats_path = os.path.join(data_root, 'all'),
                          brats_transform=training_transform,
                          shuffle=True)
@@ -169,8 +172,8 @@ if __name__ == "__main__":
     # normalize = transforms.Normalize(Mean,Std)
 
 
-    for i in range(1, 20):
-        img, lab = train_dataset.__getitem__(i)
+    for i in range(1, 2):
+        img, lab, bratsID = train_dataset.__getitem__(i)
         logging.info("{}: {}".format(i, img.shape))
 
     
@@ -180,23 +183,24 @@ if __name__ == "__main__":
 
     logging.info("Start iter")
     tic = time.time()
-    for i, (img, lab) in enumerate(train_loader):
+    for i, (img, lab, bratsID) in enumerate(train_loader):
         t = time.time() - tic
-        logging.info("{} samples/sec. \t img.shape = {}, label = {}.".format(float(i+1)/t, img.shape, lab))
-    
+        logging.info("{} samples/sec. \t img.shape = {}, label = {}, bratsID = {}.".format(float(i+1)/t, img.shape, lab, bratsID))
+        if i == 1:
+            break
 
-    '''
+    
     import matplotlib.pyplot as plt
      
-    for vid in range(24):
+    for vid in range(2):
 
-        img, lab = train_dataset.__getitem__(1)
+        img, lab, id = train_dataset.__getitem__(1)
         img = np.clip(img, 0., 1.)
         logging.info(img.shape)
-        for i in range(0, clip_length):
+        for i in range(0, 5):
             plt.imshow(img.numpy()[:,i,:,:].transpose(1,2,0))
             plt.draw()
             plt.pause(0.2)
     
     plt.pause(1)
-    '''
+    plt.savefig('dataloader.png')
