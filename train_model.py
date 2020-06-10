@@ -32,7 +32,7 @@ def train_model(sym_net, model_prefix, dataset, input_conf,
     iter_seed = torch.initial_seed() \
                 + (torch.distributed.get_rank() * 10 if distributed else 100) \
                 + max(0, resume_epoch) * 100
-    train_iter, eval_iter = iterator_factory.creat(name=dataset,
+    train_iter, eval_iter = iterator_factory_brats.create(name=dataset,
                                                    batch_size=batch_size,
                                                    clip_length=clip_length,
                                                    train_interval=train_frame_interval,

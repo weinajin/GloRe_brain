@@ -22,7 +22,7 @@ parser = argparse.ArgumentParser(description="PyTorch Brats IDH Classification P
 parser.add_argument('--debug-mode', type=bool, default=True,
                     help="print all setting for debugging.")
 # io
-parser.add_argument('--dataset', default='BRATS', choices=['BRATS'],
+parser.add_argument('--dataset', default='BRATS_IDH', choices=['BRATS_IDH'],
                     help="path to dataset")
 parser.add_argument('--clip-length', default=8,
                     help="define the length of each input sample.")
@@ -40,8 +40,8 @@ parser.add_argument('--network', type=str, default='RESNET50_3D_GCN_X5',
                     choices=['RESNET50_3D_GCN_X5', 'RESNET101_3D_GCN_X5'],
                     help="chose the base network")
 # optimization
-parser.add_argument('--pretrained', type=bool, default=True,
-                    help="load default pretrained model.")
+parser.add_argument('--pretrained', action='store_true',
+                    help="turn on to load default pretrained model.")
 parser.add_argument('--fine-tune', type=bool, default=False,
                     help="resume training and then fine tune the classifier")
 parser.add_argument('--precise-bn', type=bool, default=True,
@@ -69,6 +69,7 @@ parser.add_argument('--world-size', default=1, type=int,
                     help='number of distributed processes')
 parser.add_argument('--dist-url', default='tcp://HOSTNAME:23455', type=str,
                     help='url used to set up distributed training')
+
 
 def autofill(args):
     # customized

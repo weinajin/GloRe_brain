@@ -13,6 +13,8 @@ def get_config(name):
         config['num_classes'] = 101
     elif name.upper() == 'HMDB51':
         config['num_classes'] = 51
+    elif name.upper() == 'BRATS_IDH':
+        config['num_classes'] = 2
     elif name.upper() == 'KINETICS':
         config['num_classes'] = 400
     else:
