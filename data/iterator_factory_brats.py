@@ -67,7 +67,7 @@ def read_brats_mean(fold, data_root):
 def get_brats(data_root='../../dld_data/brats2019/MICCAI_BraTS_2019_Data_Training/',
               log_path='../log/',
               fold = 1,
-              seed=torch.distributed.get_rank() if torch.distributed._initialized else 0,
+              seed=torch.distributed.get_rank() if torch.distributed.is_initialized() else 0,
               **kwargs):
     """ data iter for brats
     """
