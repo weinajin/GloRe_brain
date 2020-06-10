@@ -49,25 +49,25 @@ class Transform(object):
 # Customized Transformations
 ####################################
 
-class ToTensor(Transform):
-    """
-    Converts a numpy.ndarray (W x H x (D x C)) to a torch.FloatTensor of shape (C x D x W x H).
-    """
-    def __init__(self, dim=3):
-        self.dim = dim
-
-    def __call__(self, img):
-        if isinstance(img, np.ndarray):
-            H, W, _ = img.shape
-            # handle numpy array
-            img = torch.from_numpy(img.reshape((H,W,-1,self.dim)).transpose((3, 2, 0, 1)))
-            # backward compatibility
-            return img.float().
+# class ToTensor(Transform):
+#     """
+#     Converts a numpy.ndarray (W x H x (D x C)) to a torch.FloatTensor of shape (C x D x W x H).
+#     """
+#     def __init__(self, dim=3):
+#         self.dim = dim
+#
+#     def __call__(self, img):
+#         if isinstance(img, np.ndarray):
+#             H, W, _ = img.shape
+#             # handle numpy array
+#             img = torch.from_numpy(img.reshape((H,W,-1,self.dim)).transpose((3, 2, 0, 1)))
+#             # backward compatibility
+#             return img.float()
 
 class Normalize(Transform):
     '''
     Normalize a torch.FloatTensor of (C, D, H, W) to the same shape. with its mean and std are unscaled (300+).
-    """Given mean and std of size (C, ),
+    Given mean and std of size (C, ),
     will normalize each channel of the torch.*Tensor, i.e.
     channel = (channel - mean) / std
     '''
@@ -75,8 +75,8 @@ class Normalize(Transform):
         self.mean = mean
         self.std = std
 
-    def __call__(self, tensor):
+    def __call__(self, Subject):
+        print(type(tensor))
         for t, m, s in zip(tensor, self.mean, self.std):
             t.sub_(m).div_(s)
         return tensor
-    '''

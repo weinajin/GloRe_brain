@@ -22,6 +22,7 @@ parser = argparse.ArgumentParser(description="PyTorch Brats IDH Classification P
 parser.add_argument('--debug-mode', type=bool, default=True,
                     help="print all setting for debugging.")
 # io
+parser.add_argument("--fold", type=int, default=1, help="5-fold cross validation")
 parser.add_argument('--dataset', default='BRATS_IDH', choices=['BRATS_IDH'],
                     help="path to dataset")
 parser.add_argument('--clip-length', default=8,
@@ -44,7 +45,7 @@ parser.add_argument('--pretrained', action='store_true',
                     help="turn on to load default pretrained model.")
 parser.add_argument('--fine-tune', type=bool, default=False,
                     help="resume training and then fine tune the classifier")
-parser.add_argument('--precise-bn', type=bool, default=True,
+parser.add_argument('--precise-bn', action='store_true',
                     help="try to refine batchnorm layers at the end of each training epoch.")
 parser.add_argument('--resume-epoch', type=int, default=-1,
                     help="resume train")
@@ -139,13 +140,13 @@ if __name__ == "__main__":
         dist.init_process_group(backend=args.backend, init_method=dist_url, rank=rank,
                                 group_name=args.task_name, world_size=args.world_size)
 
-    # load dataset related configuration
+    # load dataset related configuration: config['num_classes'] = 2
     dataset_cfg = dataset.get_config(name=args.dataset)
 
     # creat model with all parameters initialized
     assert (not args.fine_tune or not args.resume_epoch < 0), \
             "args: `resume_epoch' must be defined for fine tuning"
-    net, input_conf = get_symbol(name=args.network,
+    net = get_symbol(name=args.network,
                      pretrained=args.pretrained if args.resume_epoch < 0 else None,
                      print_net=False, # True if args.distributed else False,
                      **dataset_cfg)
@@ -153,6 +154,6 @@ if __name__ == "__main__":
     # training
     kwargs = {}
     kwargs.update(dataset_cfg)
-    kwargs.update({'input_conf': input_conf})
+    # kwargs.update({'input_conf': input_conf})
     kwargs.update(vars(args))
     train_model(sym_net=net, **kwargs)

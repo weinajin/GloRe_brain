@@ -34,7 +34,7 @@ class static_model(object):
         self.model_prefix = model_prefix
         self.criterion = criterion
         self.single_checkpoint = single_checkpoint
-        if self.single_checkpoint and torch.distributed._initialized:
+        if self.single_checkpoint and torch.distributed.is_initialized():
             logging.warning(">> only keeping the checkpoint for rank=0 node, making sure you are using shared filesystem")
 
     def load_state(self, state_dict, strict=False):
