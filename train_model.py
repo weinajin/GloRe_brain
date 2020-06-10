@@ -11,7 +11,7 @@ import torchvision
 import torch.backends.cudnn as cudnn
 import torch.distributed as dist
 
-from data import iterator_factory
+from data import iterator_factory_brast
 from train import metric
 from train import custom_optim
 from train.model import model

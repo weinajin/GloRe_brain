@@ -113,7 +113,6 @@ if __name__ == "__main__":
 
     import pdb
     import time
-    # from .iterator_factory_brats import read_brats_mean
     from torchio.transforms import (
         RandomFlip,
         RandomAffine,

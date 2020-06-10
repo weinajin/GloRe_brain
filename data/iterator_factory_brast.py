@@ -7,20 +7,43 @@ import os
 import logging
 import torch
 
-from .brast_iterator import BratsIter
+from .brats_iterator import BratsIter
 
-def read_brats_mean(fold, trainset):
+from torchio.transforms import (
+    RandomFlip,
+    RandomAffine,
+    RandomElasticDeformation,
+    RandomNoise,
+    RandomMotion,
+    RandomBiasField,
+    RescaleIntensity,
+    Resample,
+    ToCanonical,
+    ZNormalization,
+    CropOrPad,
+    HistogramStandardization,
+    OneOf,
+    Compose,
+)
+
+def read_brats_mean(fold, data_root):
     # Mean = torch.from_numpy(np.array([359.7985, 442.3089, 442.4439, 315.7795]).astype(np.float32))
     # Std  = torch.from_numpy(np.array([531.5512, 641.3847, 670.7475, 464.5106]).astype(np.float32))
     # '''
-    pickle_name = os.path.join(opt.log_path, 'mean_fold_{}'.format(fold))
+    csv_file = os.path.join(data_root, 'IDH_label', 'train_fold_{}.csv'.format(fold))
+    brats_path = os.path.join(data_root, 'all')
+    mean_file = os.path.join(data_root, 'IDH_label', 'mean_fold_{}'.format(fold))
     try:
-        Mean, Std, Max = pickle.load(open(pickle_name, "rb"))
+        Mean, Std, Max = pickle.load(open(mean_file, "rb"))
     except OSError as e:
         Mean = torch.zeros(4)
         Std = torch.zeros(4)
         Max = torch.zeros(4)
         kkk = 0
+        trainset = BratsIter(csv_file=csv_file,
+                      brats_path = brats_path,
+                      brats_transform= None,
+                      shuffle=False)
         for i in range(len(trainset)):
             I, L = trainset[i]
             C,D,W,H = I.size()
@@ -31,67 +54,61 @@ def read_brats_mean(fold, trainset):
                 if MM[i] > Max[i]:
                     Max[i] = MM[i]
             kkk += 1
-            print(kkk, end=" ")
+            logging.INFO(kkk, end=" ")
         Mean /= len(trainset)
         Std  /= len(trainset)
-        pickle.dump([Mean, Std, Max], open(pickle_name, "wb"))
-    print('\n mean for fold {}: '.format(fold)), print(Mean.numpy())
-    print('std: '), print(Std.numpy())
-    print('max: '), print(Max.numpy())
+        pickle.dump([Mean, Std, Max], open(mean_file, "wb"))
+    logging.INFO('\n mean for fold {}: '.format(fold)), logging.INFO(Mean.numpy())
+    logging.INFO('std: '), print(Std.numpy())
+    logging.INFO('max: '), print(Max.numpy())
     return Mean, Std, Max
 
 
-def get_brats(data_root='../../dld_data/brats2019/MICCAI_BraTS_2019_Data_Training/all',
-                 fold = 0,
-                 seed=torch.distributed.get_rank() if torch.distributed._initialized else 0,
-                 **kwargs):
+def get_brats(data_root='../../dld_data/brats2019/MICCAI_BraTS_2019_Data_Training/',
+              log_path='../log/',
+              fold = 1,
+              seed=torch.distributed.get_rank() if torch.distributed._initialized else 0,
+              **kwargs):
     """ data iter for brats
     """
     logging.debug("BratsIter:: fold = {}, seed = {}".format(fold, seed))
-    Mean, Std, Max = read_data_mean(fold, trainset)
-
+    # args for transforms
+    d_size, h_size, w_size = 155, 240, 240
+    input_size = [7, 223,223]
+    spacing = (d_size/input_size[0], h_size/input_size[1], w_size/input_size[2])
+    Mean, Std, Max = read_data_mean(fold, log_path, data_root)
     normalize = transforms.Normalize(mean=Mean, std=Std)
+    training_transform = Compose([
+        # RescaleIntensity((0, 1)),  # so that there are no negative values for RandomMotion
+        # RandomMotion(),
+        # HistogramStandardization({MRI: landmarks}),
+        RandomBiasField(),
+        # ZNormalization(masking_method=ZNormalization.mean),
+        RandomNoise(),
+        ToCanonical(),
+        Resample(spacing),
+        # CropOrPad((48, 60, 48)),
+        RandomFlip(axes=(0,)),
+        OneOf({
+            RandomAffine(): 0.8,
+            RandomElasticDeformation(): 0.2,
+        }),
+        normalize
+    ])
+    val_transform = Compose([
+        Resample(spacing),
+        normalize,
+    ]),
 
-    train_sampler = sampler.RandomSampling(num=clip_length,
-                                           interval=train_interval,
-                                           speed=[1.0, 1.0],
-                                           seed=(seed+0))
-    train = BratsIter(brats_prefix=os.path.join(data_root, 'raw', 'data', 'train_avi-288p'),
-                      txt_list=os.path.join(data_root, 'raw', 'list_cvt', 'brats_train_avi.txt'),
-                      sampler=train_sampler,
-                      force_color=True,
-                      brats_transform=transforms.Compose([
-                                         transforms.RandomScale(make_square=False,
-                                                                aspect_ratio=[.8, 1./.8],
-                                                                slen=[224, 340]),
-                                         transforms.RandomCrop((224, 224)), # insert a resize if needed
-                                         transforms.RandomHorizontalFlip(),
-                                         transforms.RandomHLS(vars=[15, 35, 25]), # too slow
-                                         transforms.PixelJitter(vars=[-20, 20]), 
-                                         transforms.ToTensor(),
-                                         normalize,
-                                      ],
-                                      aug_seed=(seed+1)),
-                      name='train',
-                      shuffle_list_seed=(seed+2),
-                      )
+    train = BratsIter(csv_file=os.path.join(data_root, 'IDH_label', 'train_fold_{}.csv'.format(fold)),
+                      brats_path = os.path.join(data_root, 'all'),
+                      brats_transform=training_transform,
+                      shuffle=True)
 
-    val_sampler   = sampler.EvenlySampling(num=clip_length,
-                                           interval=val_interval,
-                                           num_times=1)
-    val   = BratsIter(brats_prefix=os.path.join(data_root, 'raw', 'data', 'val_avi-288p'),
-                      txt_list=os.path.join(data_root, 'raw', 'list_cvt', 'brats_val_avi.txt'),
-                      sampler=val_sampler,
-                      force_color=True,
-                      brats_transform=transforms.Compose([
-                                         transforms.Resize(256),
-                                         transforms.CenterCrop((224, 224)),
-                                         transforms.ToTensor(),
-                                         normalize,
-                                      ]),
-                      name='test',
-                      shuffle_list_seed=(seed+3),
-                      )
+    val   = BratsIter(csv_file=os.path.join(data_root, 'IDH_label', 'val_fold_{}.csv'.format(fold)),
+                      brats_path = os.path.join(data_root, 'all'),
+                      brats_transform=val_transform,
+                      shuffle=True)
     return (train, val)
 
 
