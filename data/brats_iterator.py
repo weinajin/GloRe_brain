@@ -134,11 +134,11 @@ if __name__ == "__main__":
     input_size = [7, 223,223]
     spacing = (d_size/input_size[0], h_size/input_size[1], w_size/input_size[2])
     training_transform = Compose([
-        RescaleIntensity((0, 1)),  # so that there are no negative values for RandomMotion
-        RandomMotion(),
+        # RescaleIntensity((0, 1)),  # so that there are no negative values for RandomMotion
+        # RandomMotion(),
         # HistogramStandardization({MRI: landmarks}),
         RandomBiasField(),
-        ZNormalization(masking_method=ZNormalization.mean),
+        # ZNormalization(masking_method=ZNormalization.mean),
         RandomNoise(),
         ToCanonical(),
         Resample(spacing),
@@ -189,17 +189,17 @@ if __name__ == "__main__":
             break
 
     
-    import matplotlib.pyplot as plt
-     
-    for vid in range(2):
-
-        img, lab, id = train_dataset.__getitem__(1)
-        img = np.clip(img, 0., 1.)
-        logging.info(img.shape)
-        for i in range(0, 5):
-            plt.imshow(img.numpy()[:,i,:,:].transpose(1,2,0))
-            plt.draw()
-            plt.pause(0.2)
-    
-    plt.pause(1)
-    plt.savefig('dataloader.png')
+    # import matplotlib.pyplot as plt
+    #
+    # for vid in range(2):
+    #
+    #     img, lab, id = train_dataset.__getitem__(1)
+    #     img = np.clip(img, 0., 1.)
+    #     logging.info(img.shape)
+    #     for i in range(0, 5):
+    #         plt.imshow(img.numpy()[:,i,:,:].transpose(1,2,0))
+    #         plt.draw()
+    #         plt.pause(0.2)
+    #
+    # plt.pause(1)
+    # plt.savefig('dataloader.png')

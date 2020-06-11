@@ -7,8 +7,8 @@ import os
 import logging
 import torch
 import pickle
-from .brats_iterator import BratsIter
-from . import brats_transforms as transforms
+from brats_iterator import BratsIter
+import brats_transforms as transforms
 
 from torchio.transforms import (
     RandomFlip,
@@ -109,7 +109,7 @@ def get_brats(data_root='/local-scratch/weinaj/dld_data/brats2019/MICCAI_BraTS_2
                       brats_path = os.path.join(data_root, 'all'),
                       brats_transform=val_transform,
                       shuffle=True)
-    return (train, val)
+    return train, val
 
 
 
@@ -130,3 +130,24 @@ def create(name, fold, batch_size, num_workers=8, **kwargs):
         num_workers=num_workers, pin_memory=True)
 
     return (train_loader, val_loader)
+
+if __name__ == "__main__":
+    import time
+    logging.getLogger().setLevel(logging.DEBUG)
+
+    logging.info('start test iterator_factor_brats')
+    train, val = get_brats()
+    for i in range(1, 2):
+        img, lab, bratsID = train.__getitem__(i)
+        logging.info('max: {}, min: {}, mean: {}, std: {}'.format(img.max(), img.min(), img.mean(), img.std()))
+        logging.info("{}: {}".format(i, img.shape))
+    train_loader = torch.utils.data.DataLoader(train,
+                                               batch_size=1, shuffle=True,
+                                               num_workers=12, pin_memory=True)
+    logging.info("Start iter")
+    tic = time.time()
+    for i, (img, lab, bratsID) in enumerate(train_loader):
+        t = time.time() - tic
+        logging.info("{} samples/sec. \t img.shape = {}, label = {}, bratsID = {}.".format(float(i+1)/t, img.shape, lab, bratsID))
+        if i == 1:
+            break
