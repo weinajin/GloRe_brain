@@ -6,8 +6,9 @@
 import os
 import logging
 import torch
-
+import pickle
 from .brats_iterator import BratsIter
+from . import brats_transforms as transforms
 
 from torchio.transforms import (
     RandomFlip,
@@ -58,14 +59,13 @@ def read_brats_mean(fold, data_root):
         Mean /= len(trainset)
         Std  /= len(trainset)
         pickle.dump([Mean, Std, Max], open(mean_file, "wb"))
-    logging.INFO('\n mean for fold {}: '.format(fold)), logging.INFO(Mean.numpy())
-    logging.INFO('std: '), print(Std.numpy())
-    logging.INFO('max: '), print(Max.numpy())
+    logging.info('Mean for fold {}: {}'.format(fold, Mean.numpy()))
+    logging.info('Std: {}'.format(Std.numpy()))
+    logging.info('Max: {}'.format(Max.numpy()))
     return Mean, Std, Max
 
 
-def get_brats(data_root='../../dld_data/brats2019/MICCAI_BraTS_2019_Data_Training/',
-              log_path='../log/',
+def get_brats(data_root='/local-scratch/weinaj/dld_data/brats2019/MICCAI_BraTS_2019_Data_Training/',
               fold = 1,
               seed=torch.distributed.get_rank() if torch.distributed.is_initialized() else 0,
               **kwargs):
@@ -76,7 +76,7 @@ def get_brats(data_root='../../dld_data/brats2019/MICCAI_BraTS_2019_Data_Trainin
     d_size, h_size, w_size = 155, 240, 240
     input_size = [7, 223,223]
     spacing = (d_size/input_size[0], h_size/input_size[1], w_size/input_size[2])
-    Mean, Std, Max = read_data_mean(fold, log_path, data_root)
+    Mean, Std, Max = read_brats_mean(fold, data_root)
     normalize = transforms.Normalize(mean=Mean, std=Std)
     training_transform = Compose([
         # RescaleIntensity((0, 1)),  # so that there are no negative values for RandomMotion
@@ -109,14 +109,14 @@ def get_brats(data_root='../../dld_data/brats2019/MICCAI_BraTS_2019_Data_Trainin
                       brats_path = os.path.join(data_root, 'all'),
                       brats_transform=val_transform,
                       shuffle=True)
-    return (train, val)
+    return train, val
 
 
 
 def create(name, fold, batch_size, num_workers=8, **kwargs):
 
-    if name.upper() == 'BRATS':
-        train, val = get_brats(**kwargs)
+    if name.upper() == 'BRATS_IDH':
+        train, val = get_brats(fold = fold, **kwargs)
     else:
         assert NotImplementedError("iter {} not found".format(name))
 
@@ -130,3 +130,24 @@ def create(name, fold, batch_size, num_workers=8, **kwargs):
         num_workers=num_workers, pin_memory=True)
 
     return (train_loader, val_loader)
+
+if __name__ == "__main__":
+    import time
+    logging.getLogger().setLevel(logging.DEBUG)
+
+    logging.info('start test iterator_factor_brats')
+    train, val = get_brats()
+    for i in range(1, 2):
+        img, lab, bratsID = train.__getitem__(i)
+        logging.info('max: {}, min: {}, mean: {}, std: {}'.format(img.max(), img.min(), img.mean(), img.std()))
+        logging.info("{}: {}".format(i, img.shape))
+    train_loader = torch.utils.data.DataLoader(train,
+                                               batch_size=1, shuffle=True,
+                                               num_workers=12, pin_memory=True)
+    logging.info("Start iter")
+    tic = time.time()
+    for i, (img, lab, bratsID) in enumerate(train_loader):
+        t = time.time() - tic
+        logging.info("{} samples/sec. \t img.shape = {}, label = {}, bratsID = {}.".format(float(i+1)/t, img.shape, lab, bratsID))
+        if i == 1:
+            break

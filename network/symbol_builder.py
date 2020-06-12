@@ -24,8 +24,8 @@ def get_symbol(name, print_net=False, **kwargs):
         logging.debug("Symbol:: Network Architecture:")
         logging.debug(net)
 
-    input_conf = get_config(name, **kwargs)
-    return net, input_conf
+    # input_conf = get_config(name, **kwargs)
+    return net
 
 if __name__ == "__main__":
     import torch

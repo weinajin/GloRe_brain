@@ -18,7 +18,7 @@ from train.model import model
 from train.lr_scheduler import MultiFactorScheduler
 
 
-def train_model(sym_net, model_prefix, dataset, input_conf,
+def train_model(sym_net, model_prefix, dataset, fold,
                 clip_length=8, train_frame_interval=2, val_frame_interval=2,
                 resume_epoch=-1, batch_size=4, save_frequency=1,
                 lr_base=0.01, lr_factor=0.1, lr_steps=[400000, 800000],
@@ -34,11 +34,12 @@ def train_model(sym_net, model_prefix, dataset, input_conf,
                 + max(0, resume_epoch) * 100
     train_iter, eval_iter = iterator_factory_brats.create(name=dataset,
                                                    batch_size=batch_size,
-                                                   clip_length=clip_length,
-                                                   train_interval=train_frame_interval,
-                                                   val_interval=val_frame_interval,
-                                                   mean=input_conf['mean'],
-                                                   std=input_conf['std'],
+                                                   fold = fold,
+                                                   # clip_length=clip_length,
+                                                   # train_interval=train_frame_interval,
+                                                   # val_interval=val_frame_interval,
+                                                   # mean=input_conf['mean'],
+                                                   # std=input_conf['std'],
                                                    seed=iter_seed)
     # model (dynamic)
     net = model(net=sym_net,
@@ -112,7 +113,7 @@ def train_model(sym_net, model_prefix, dataset, input_conf,
         epoch_start = resume_epoch
         step_counter = epoch_start * int(train_iter.__len__()/epoch_div_factor)
 
-    num_worker = torch.distributed.get_world_size() if torch.distributed._initialized else 1
+    num_worker = torch.distributed.get_world_size() if torch.distributed.is_initialized() else 1
     lr_scheduler = MultiFactorScheduler(base_lr=lr_base,
                                         steps=[int(x/(batch_size*num_worker)) for x in lr_steps],
                                         factor=lr_factor,

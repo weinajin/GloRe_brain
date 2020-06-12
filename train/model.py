@@ -34,7 +34,7 @@ class static_model(object):
         self.model_prefix = model_prefix
         self.criterion = criterion
         self.single_checkpoint = single_checkpoint
-        if self.single_checkpoint and torch.distributed._initialized:
+        if self.single_checkpoint and torch.distributed.is_initialized():
             logging.warning(">> only keeping the checkpoint for rank=0 node, making sure you are using shared filesystem")
 
     def load_state(self, state_dict, strict=False):
@@ -266,7 +266,7 @@ class model(static_model):
             logging.info("Start epoch {:d}, iter stride {:d}, train steps {:d}, eval steps: {:d}".format( \
                         i_epoch, epoch_div_factor, epoch_train_steps, epoch_eval_steps))
 
-            for i_batch, (data, target) in enumerate(train_iter):
+            for i_batch, (data, target, bratsID) in enumerate(train_iter):
 
                 if i_batch >= epoch_term_steps:
                     break
