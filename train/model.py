@@ -57,7 +57,7 @@ class static_model(object):
 
     def get_checkpoint_path(self, epoch, suffix=''):
         assert self.model_prefix, "model_prefix undefined!"
-        if torch.distributed._initialized and not self.single_checkpoint:
+        if torch.distributed.is_initialized() and not self.single_checkpoint:
             # pth_mark = socket.gethostname()
             pth_mark = str(torch.distributed.get_rank())
             checkpoint_path = "{}_rank-{}_ep-{:04d}{}.pth".format(self.model_prefix, pth_mark, epoch, suffix)
@@ -89,7 +89,7 @@ class static_model(object):
 
     def save_checkpoint(self, epoch, optimizer_state=None, suffix=''):
 
-        if self.single_checkpoint and torch.distributed._initialized and torch.distributed.get_rank() != 0:
+        if self.single_checkpoint and torch.distributed.is_initialized() and torch.distributed.get_rank() != 0:
             logging.info("Checkpoint saved by node 0 (rank=0).")
             return
 
@@ -266,7 +266,7 @@ class model(static_model):
             logging.info("Start epoch {:d}, iter stride {:d}, train steps {:d}, eval steps: {:d}".format( \
                         i_epoch, epoch_div_factor, epoch_train_steps, epoch_eval_steps))
 
-            for i_batch, (data, target) in enumerate(train_iter):
+            for i_batch, (data, target, bratsID) in enumerate(train_iter):
 
                 if i_batch >= epoch_term_steps:
                     break

@@ -91,7 +91,7 @@ def autofill(args):
     args.model_prefix = os.path.join(args.model_dir, args.task_name)
     return args
 
-def set_logger(args, log_file='', debug_mode=False):
+def set_logger(args, log_file='', debug_mode=True):
 
     if log_file:
         if not os.path.exists("./"+os.path.dirname(log_file)):

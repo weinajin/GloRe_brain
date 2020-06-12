@@ -7,8 +7,8 @@ import os
 import logging
 import torch
 import pickle
-from brats_iterator import BratsIter
-import brats_transforms as transforms
+from .brats_iterator import BratsIter
+from . import brats_transforms as transforms
 
 from torchio.transforms import (
     RandomFlip,
