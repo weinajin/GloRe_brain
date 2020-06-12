@@ -57,7 +57,7 @@ class static_model(object):
 
     def get_checkpoint_path(self, epoch, suffix=''):
         assert self.model_prefix, "model_prefix undefined!"
-        if torch.distributed._initialized and not self.single_checkpoint:
+        if torch.distributed.is_initialized() and not self.single_checkpoint:
             # pth_mark = socket.gethostname()
             pth_mark = str(torch.distributed.get_rank())
             checkpoint_path = "{}_rank-{}_ep-{:04d}{}.pth".format(self.model_prefix, pth_mark, epoch, suffix)
@@ -89,7 +89,7 @@ class static_model(object):
 
     def save_checkpoint(self, epoch, optimizer_state=None, suffix=''):
 
-        if self.single_checkpoint and torch.distributed._initialized and torch.distributed.get_rank() != 0:
+        if self.single_checkpoint and torch.distributed.is_initialized() and torch.distributed.get_rank() != 0:
             logging.info("Checkpoint saved by node 0 (rank=0).")
             return
 
