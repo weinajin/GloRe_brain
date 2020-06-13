@@ -65,7 +65,7 @@ def read_brats_mean(fold, data_root):
     return Mean, Std, Max
 
 
-def get_brats(data_root='/local-scratch/weinaj/dld_data/brats2019/MICCAI_BraTS_2019_Data_Training/',
+def get_brats(data_root='/scratch/weina/dld_data/brats2019/MICCAI_BraTS_2019_Data_Training/',
               fold = 1,
               seed=torch.distributed.get_rank() if torch.distributed.is_initialized() else 0,
               **kwargs):
