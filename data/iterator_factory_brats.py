@@ -97,8 +97,8 @@ def get_brats(data_root='/local-scratch/weinaj/dld_data/brats2019/MICCAI_BraTS_2
     ])
     val_transform = Compose([
         Resample(spacing),
-        normalize,
-    ]),
+        normalize
+    ])
 
     train = BratsIter(csv_file=os.path.join(data_root, 'IDH_label', 'train_fold_{}.csv'.format(fold)),
                       brats_path = os.path.join(data_root, 'all'),
@@ -108,7 +108,7 @@ def get_brats(data_root='/local-scratch/weinaj/dld_data/brats2019/MICCAI_BraTS_2
     val   = BratsIter(csv_file=os.path.join(data_root, 'IDH_label', 'val_fold_{}.csv'.format(fold)),
                       brats_path = os.path.join(data_root, 'all'),
                       brats_transform=val_transform,
-                      shuffle=True)
+                      shuffle=False)
     return train, val
 
 
@@ -138,10 +138,10 @@ if __name__ == "__main__":
     logging.info('start test iterator_factor_brats')
     train, val = get_brats()
     for i in range(1, 2):
-        img, lab, bratsID = train.__getitem__(i)
+        img, lab, bratsID = val.__getitem__(i)
         logging.info('max: {}, min: {}, mean: {}, std: {}'.format(img.max(), img.min(), img.mean(), img.std()))
         logging.info("{}: {}".format(i, img.shape))
-    train_loader = torch.utils.data.DataLoader(train,
+    train_loader = torch.utils.data.DataLoader(val,
                                                batch_size=1, shuffle=True,
                                                num_workers=12, pin_memory=True)
     logging.info("Start iter")

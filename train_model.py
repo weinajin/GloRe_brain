@@ -121,7 +121,7 @@ def train_model(sym_net, model_prefix, dataset, fold,
 
     metrics = metric.MetricList(metric.Loss(name="loss-ce"),
                                 metric.Accuracy(name="top1", topk=1),
-                                metric.Accuracy(name="top5", topk=5),)
+                                metric.Accuracy(name="top2", topk=2),)
 
     cudnn.benchmark = True
     # cudnn.fastest = False

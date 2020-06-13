@@ -87,7 +87,7 @@ class RESNET50_3D_GCN_X5(nn.Module):
         # conv1 - x112 (x16)
         conv1_num_out = 32
         self.conv1 = nn.Sequential(OrderedDict([
-                    ('conv', nn.Conv3d( 3, conv1_num_out, kernel_size=(3,5,5), padding=(1,2,2), stride=(1,2,2), bias=False)),
+                    ('conv', nn.Conv3d( 4, conv1_num_out, kernel_size=(4,5,5), padding=(1,2,2), stride=(1,2,2), bias=False)),
                     ('bn', nn.BatchNorm3d(conv1_num_out, eps=1e-04)),
                     ('relu', nn.ReLU(inplace=True)),
                     ('max_pool', nn.MaxPool3d(kernel_size=(1,3,3), padding=(0,1,1), stride=(1,2,2))),
@@ -189,7 +189,7 @@ class RESNET50_3D_GCN_X5(nn.Module):
 
 
     def forward(self, x):
-        assert x.shape[2] == 8
+        assert x.shape[2] == 8  # depth
 
         h = self.conv1(x)   # x112 ->  x56
         h = self.conv2(h)   #  x56 ->  x56
@@ -211,9 +211,9 @@ if __name__ == "__main__":
     import torch
     logging.getLogger().setLevel(logging.DEBUG)
     # ---------
-    net = RESNET50_3D_GCN_X5(num_classes=400, pretrained=False)
+    net = RESNET50_3D_GCN_X5(num_classes=2, pretrained=False)
     print("--------------")
-    data = torch.autograd.Variable(torch.randn(1,3,8,224,224))
+    data = torch.autograd.Variable(torch.randn(1,4,8,224,224))
     output = net(data)
     torch.save({'state_dict': net.state_dict()}, './tmp.pth')
     print (output.shape)

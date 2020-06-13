@@ -25,13 +25,13 @@ parser.add_argument('--debug-mode', type=bool, default=True,
 parser.add_argument("--fold", type=int, default=1, help="5-fold cross validation")
 parser.add_argument('--dataset', default='BRATS_IDH', choices=['BRATS_IDH'],
                     help="path to dataset")
-parser.add_argument('--clip-length', default=8,
-                    help="define the length of each input sample.")
+# parser.add_argument('--clip-length', default=8,
+#                     help="define the length of each input sample.")
 parser.add_argument('--task-name', type=str, default='',
                     help="name of current task, leave it empty for using folder name")
 parser.add_argument('--model-dir', type=str, default="./exps/models",
                     help="set logging file.")
-parser.add_argument('--log-file', type=str, default="",
+parser.add_argument('--log-file', type=str, default="./exps/logs",
                     help="set logging file.")
 # device
 parser.add_argument('--gpus', type=str, default="0,1,2,3,4,5,6,7",
@@ -59,7 +59,7 @@ parser.add_argument('--lr-factor', type=float, default=0.1,
                     help="reduce the learning with factor")
 parser.add_argument('--save-frequency', type=float, default=1,
                     help="save once after N epochs")
-parser.add_argument('--end-epoch', type=int, default=10000,
+parser.add_argument('--end-epoch', type=int, default=100,
                     help="maxmium number of training epoch")
 parser.add_argument('--random-seed', type=int, default=1,
                     help='random seed (default: 1)')

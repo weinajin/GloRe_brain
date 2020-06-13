@@ -18,7 +18,7 @@ def get_kinetics(data_root='./dataset/Kinetics',
                  val_interval=2,
                  mean=[0.485, 0.456, 0.406],
                  std=[0.229, 0.224, 0.225],
-                 seed=torch.distributed.get_rank() if torch.distributed._initialized else 0,
+                 seed=torch.distributed.get_rank() if torch.distributed.is_initialized() else 0,
                  **kwargs):
     """ data iter for kinetics
     """
