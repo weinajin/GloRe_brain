@@ -1,0 +1,1640 @@
+2020-06-14 11:14:05: Using pytorch 1.4.0 (['/home/weina/anaconda3/envs/brain/lib/python3.7/site-packages/torch'])
+2020-06-14 11:14:05: Start training with args:
+{
+    "backend": "nccl",
+    "batch_size": 64,
+    "dataset": "BRATS_IDH",
+    "debug_mode": true,
+    "dist_url": "tcp://HOSTNAME:23455",
+    "distributed": false,
+    "end_epoch": 100,
+    "fine_tune": false,
+    "fold": 4,
+    "gpus": "0,1,2,3,4,5,6,7",
+    "log_file": "./exps/logs",
+    "lr_base": 0.05,
+    "lr_factor": 0.1,
+    "lr_steps": [
+        10800000,
+        15600000,
+        20400000
+    ],
+    "model_dir": "./exps/models",
+    "model_prefix": "./exps/models/GloRe_brain",
+    "network": "RESNET50_3D_GCN_X5",
+    "precise_bn": false,
+    "pretrained": false,
+    "random_seed": 1,
+    "resume_epoch": -1,
+    "save_frequency": 1,
+    "task_name": "GloRe_brain",
+    "world_size": 1
+}
+2020-06-14 11:14:05: Target dataset: 'BRATS_IDH', configs: {'num_classes': 2}
+2020-06-14 11:14:06: Initializer:: 'GloRe_Unit' is uninitialized.
+2020-06-14 11:14:06: Initializer:: 'GloRe_Unit' is uninitialized.
+2020-06-14 11:14:06: Initializer:: 'GloRe_Unit' is uninitialized.
+2020-06-14 11:14:06: Initializer:: 'GloRe_Unit' is uninitialized.
+2020-06-14 11:14:06: Initializer:: 'GloRe_Unit' is uninitialized.
+2020-06-14 11:14:06: Initializer:: 'Dropout' is uninitialized.
+2020-06-14 11:14:06: Network:: symbol initialized, use random inilization!
+2020-06-14 11:14:06: Network:: change params of the following layer be zeros: ['conv3.B01_extra.blocker.weight', 'conv3.B03_extra.blocker.weight', 'conv4.B01_extra.blocker.weight', 'conv4.B03_extra.blocker.weight', 'conv4.B05_extra.blocker.weight']
+2020-06-14 11:14:06: BratsIter:: fold = 4, seed = 101
+2020-06-14 11:14:06: Mean for fold 4: [576.0008  654.7268  708.18414 487.23215]
+2020-06-14 11:14:06: Std: [281.6692  324.2726  407.70755 260.94986]
+2020-06-14 11:14:06: Max: [20987. 26223. 32111. 29312.]
+2020-06-14 11:14:06: BratsIter:: iterator initialized (csv_file: '/scratch/weina/dld_data/brats2019/MICCAI_BraTS_2019_Data_Training/IDH_label/train_fold_4.csv', num: 131)
+2020-06-14 11:14:06: BratsIter:: iterator initialized (csv_file: '/scratch/weina/dld_data/brats2019/MICCAI_BraTS_2019_Data_Training/IDH_label/val_fold_4.csv', num: 32)
+2020-06-14 11:14:09: Optimizer:: >> recuding the learning rate of 48 params: ['conv2.B01.conv_m2.bn.weight', 'conv2.B01.conv_m2.bn.bias', 'conv2.B01.conv_m2.conv.weight', 'conv2.B02.conv_m2.bn.weight', 'conv2.B02.conv_m2.bn.bia ... v5.B02.conv_m2.bn.bias', 'conv5.B02.conv_m2.conv.weight', 'conv5.B03.conv_m2.bn.weight', 'conv5.B03.conv_m2.bn.bias', 'conv5.B03.conv_m2.conv.weight']
+2020-06-14 11:14:09: Iter 0: start with learning rate: 5.00000e-02 (next lr step: 168750)
+2020-06-14 11:14:09: Start epoch 0, iter stride 4, train steps 0, eval steps: 0
+If you use TorchIO for your research, please cite the following paper:
+Pérez-García et al., TorchIO: a Python library for efficient loading,
+preprocessing, augmentation and patch-based sampling of medical images
+in deep learning. Link: https://arxiv.org/abs/2003.04696
+
+2020-06-14 11:21:53: Epoch [35]   time cost: 1560.69 sec (0.43 h)
+2020-06-14 11:21:54: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0036.pth
+2020-06-14 11:21:54: Start evaluating epoch 35:
+2020-06-14 11:23:21: Epoch [35]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-14 11:23:21: Start epoch 36, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 11:24:20: Epoch [23]   time cost: 1570.32 sec (0.44 h)
+2020-06-14 11:24:21: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0024.pth
+2020-06-14 11:24:21: Start evaluating epoch 23:
+2020-06-14 11:25:43: Epoch [23]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-14 11:25:43: Start epoch 24, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 11:36:17: Epoch [25]   time cost: 1558.09 sec (0.43 h)
+2020-06-14 11:36:18: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0026.pth
+2020-06-14 11:36:18: Start evaluating epoch 25:
+2020-06-14 11:37:43: Epoch [25]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-14 11:37:43: Start epoch 26, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 11:39:54: Epoch [0]   time cost: 1544.11 sec (0.43 h)
+2020-06-14 11:39:54: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0001.pth
+2020-06-14 11:39:54: Start evaluating epoch 0:
+2020-06-14 11:41:24: Epoch [0]   Batch [1]    Speed   0.0 (+ 0) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-14 11:41:24: Start epoch 1, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 11:49:18: Epoch [36]   time cost: 1557.62 sec (0.43 h)
+2020-06-14 11:49:19: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0037.pth
+2020-06-14 11:49:19: Start evaluating epoch 36:
+2020-06-14 11:51:02: Epoch [36]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-14 11:51:02: Start epoch 37, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 11:51:59: Epoch [24]   time cost: 1576.87 sec (0.44 h)
+2020-06-14 11:52:00: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0025.pth
+2020-06-14 11:52:00: Start evaluating epoch 24:
+2020-06-14 11:53:27: Epoch [24]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-14 11:53:27: Start epoch 25, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 12:03:32: Epoch [26]   time cost: 1549.65 sec (0.43 h)
+2020-06-14 12:03:33: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0027.pth
+2020-06-14 12:03:33: Start evaluating epoch 26:
+2020-06-14 12:05:04: Epoch [26]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-14 12:05:04: Start epoch 27, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 12:07:13: Epoch [1]   time cost: 1549.34 sec (0.43 h)
+2020-06-14 12:07:14: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0002.pth
+2020-06-14 12:07:14: Start evaluating epoch 1:
+2020-06-14 12:08:36: Epoch [1]   Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-14 12:08:36: Start epoch 2, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 12:16:54: Epoch [37]   time cost: 1552.55 sec (0.43 h)
+2020-06-14 12:16:55: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0038.pth
+2020-06-14 12:16:55: Start evaluating epoch 37:
+2020-06-14 12:18:17: Epoch [37]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-14 12:18:17: Start epoch 38, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 12:19:43: Epoch [25]   time cost: 1575.80 sec (0.44 h)
+2020-06-14 12:19:44: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0026.pth
+2020-06-14 12:19:44: Start evaluating epoch 25:
+2020-06-14 12:21:05: Epoch [25]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-14 12:21:05: Start epoch 26, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 12:31:05: Epoch [27]   time cost: 1560.98 sec (0.43 h)
+2020-06-14 12:31:06: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0028.pth
+2020-06-14 12:31:06: Start evaluating epoch 27:
+2020-06-14 12:32:23: Epoch [27]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-14 12:32:23: Start epoch 28, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 12:34:37: Epoch [2]   time cost: 1560.72 sec (0.43 h)
+2020-06-14 12:34:41: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0003.pth
+2020-06-14 12:34:41: Start evaluating epoch 2:
+2020-06-14 12:35:59: Epoch [2]   Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-14 12:35:59: Start epoch 3, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 12:44:23: Epoch [38]   time cost: 1565.56 sec (0.43 h)
+2020-06-14 12:44:24: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0039.pth
+2020-06-14 12:44:24: Start evaluating epoch 38:
+2020-06-14 12:45:50: Epoch [38]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-14 12:45:50: Start epoch 39, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 12:47:22: Epoch [26]   time cost: 1576.91 sec (0.44 h)
+2020-06-14 12:47:23: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0027.pth
+2020-06-14 12:47:23: Start evaluating epoch 26:
+2020-06-14 12:49:07: Epoch [26]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-14 12:49:07: Start epoch 27, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 12:58:17: Epoch [28]   time cost: 1553.61 sec (0.43 h)
+2020-06-14 12:58:17: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0029.pth
+2020-06-14 12:58:17: Start evaluating epoch 28:
+2020-06-14 12:59:46: Epoch [28]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-14 12:59:46: Start epoch 29, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 13:02:58: Epoch [3]   time cost: 1618.96 sec (0.45 h)
+2020-06-14 13:02:59: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0004.pth
+2020-06-14 13:02:59: Start evaluating epoch 3:
+2020-06-14 13:04:13: Epoch [3]   Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-14 13:04:13: Start epoch 4, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 13:14:02: Epoch [39]   time cost: 1691.49 sec (0.47 h)
+2020-06-14 13:14:03: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0040.pth
+2020-06-14 13:14:03: Start evaluating epoch 39:
+2020-06-14 13:15:27: Epoch [39]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-14 13:15:27: Start epoch 40, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 13:17:16: Epoch [27]   time cost: 1689.39 sec (0.47 h)
+2020-06-14 13:17:17: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0028.pth
+2020-06-14 13:17:17: Start evaluating epoch 27:
+2020-06-14 13:18:37: Epoch [27]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-14 13:18:37: Start epoch 28, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 13:27:54: Epoch [29]   time cost: 1688.05 sec (0.47 h)
+2020-06-14 13:27:55: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0030.pth
+2020-06-14 13:27:55: Start evaluating epoch 29:
+2020-06-14 13:29:11: Epoch [29]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-14 13:29:11: Start epoch 30, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 13:31:23: Epoch [4]   time cost: 1629.86 sec (0.45 h)
+2020-06-14 13:31:23: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0005.pth
+2020-06-14 13:31:23: Start evaluating epoch 4:
+2020-06-14 13:32:36: Epoch [4]   Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-14 13:32:36: Start epoch 5, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 13:41:28: Epoch [40]   time cost: 1560.93 sec (0.43 h)
+2020-06-14 13:41:29: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0041.pth
+2020-06-14 13:41:29: Start evaluating epoch 40:
+2020-06-14 13:42:59: Epoch [40]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-14 13:42:59: Start epoch 41, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 13:44:31: Epoch [28]   time cost: 1553.68 sec (0.43 h)
+2020-06-14 13:44:32: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0029.pth
+2020-06-14 13:44:32: Start evaluating epoch 28:
+2020-06-14 13:45:50: Epoch [28]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-14 13:45:50: Start epoch 29, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 13:55:17: Epoch [30]   time cost: 1565.79 sec (0.43 h)
+2020-06-14 13:55:18: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0031.pth
+2020-06-14 13:55:18: Start evaluating epoch 30:
+2020-06-14 13:56:34: Epoch [30]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-14 13:56:34: Start epoch 31, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 13:58:32: Epoch [5]   time cost: 1556.17 sec (0.43 h)
+2020-06-14 13:58:33: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0006.pth
+2020-06-14 13:58:33: Start evaluating epoch 5:
+2020-06-14 13:59:50: Epoch [5]   Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-14 13:59:50: Start epoch 6, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 14:08:47: Epoch [41]   time cost: 1548.32 sec (0.43 h)
+2020-06-14 14:08:48: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0042.pth
+2020-06-14 14:08:48: Start evaluating epoch 41:
+2020-06-14 14:10:11: Epoch [41]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-14 14:10:11: Start epoch 42, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 14:11:58: Epoch [29]   time cost: 1568.57 sec (0.44 h)
+2020-06-14 14:11:59: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0030.pth
+2020-06-14 14:11:59: Start evaluating epoch 29:
+2020-06-14 14:13:28: Epoch [29]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-14 14:13:28: Start epoch 30, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 14:22:33: Epoch [31]   time cost: 1558.59 sec (0.43 h)
+2020-06-14 14:22:34: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0032.pth
+2020-06-14 14:22:34: Start evaluating epoch 31:
+2020-06-14 14:23:54: Epoch [31]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-14 14:23:54: Start epoch 32, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 14:25:46: Epoch [6]   time cost: 1556.28 sec (0.43 h)
+2020-06-14 14:25:47: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0007.pth
+2020-06-14 14:25:47: Start evaluating epoch 6:
+2020-06-14 14:27:11: Epoch [6]   Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-14 14:27:11: Start epoch 7, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 14:36:20: Epoch [42]   time cost: 1568.65 sec (0.44 h)
+2020-06-14 14:36:20: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0043.pth
+2020-06-14 14:36:20: Start evaluating epoch 42:
+2020-06-14 14:37:41: Epoch [42]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-14 14:37:41: Start epoch 43, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 14:39:35: Epoch [30]   time cost: 1566.29 sec (0.44 h)
+2020-06-14 14:39:35: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0031.pth
+2020-06-14 14:39:35: Start evaluating epoch 30:
+2020-06-14 14:40:58: Epoch [30]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-14 14:40:58: Start epoch 31, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 14:49:57: Epoch [32]   time cost: 1562.32 sec (0.43 h)
+2020-06-14 14:49:57: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0033.pth
+2020-06-14 14:49:57: Start evaluating epoch 32:
+2020-06-14 14:51:27: Epoch [32]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-14 14:51:27: Start epoch 33, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 14:53:12: Epoch [7]   time cost: 1561.09 sec (0.43 h)
+2020-06-14 14:53:12: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0008.pth
+2020-06-14 14:53:12: Start evaluating epoch 7:
+2020-06-14 14:54:50: Epoch [7]   Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-14 14:54:50: Start epoch 8, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 15:04:13: Epoch [43]   time cost: 1592.40 sec (0.44 h)
+2020-06-14 15:04:14: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0044.pth
+2020-06-14 15:04:14: Start evaluating epoch 43:
+2020-06-14 15:05:35: Epoch [43]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-14 15:05:35: Start epoch 44, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 15:07:00: Epoch [31]   time cost: 1561.74 sec (0.43 h)
+2020-06-14 15:07:01: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0032.pth
+2020-06-14 15:07:01: Start evaluating epoch 31:
+2020-06-14 15:08:27: Epoch [31]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-14 15:08:27: Start epoch 32, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 15:17:25: Epoch [33]   time cost: 1558.37 sec (0.43 h)
+2020-06-14 15:17:26: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0034.pth
+2020-06-14 15:17:26: Start evaluating epoch 33:
+2020-06-14 15:18:45: Epoch [33]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-14 15:18:45: Start epoch 34, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 15:20:39: Epoch [8]   time cost: 1548.96 sec (0.43 h)
+2020-06-14 15:20:40: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0009.pth
+2020-06-14 15:20:40: Start evaluating epoch 8:
+2020-06-14 15:21:56: Epoch [8]   Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-14 15:21:56: Start epoch 9, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 15:31:26: Epoch [44]   time cost: 1551.09 sec (0.43 h)
+2020-06-14 15:31:28: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0045.pth
+2020-06-14 15:31:28: Start evaluating epoch 44:
+2020-06-14 15:32:50: Epoch [44]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-14 15:32:50: Start epoch 45, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 15:34:31: Epoch [32]   time cost: 1564.27 sec (0.43 h)
+2020-06-14 15:34:32: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0033.pth
+2020-06-14 15:34:32: Start evaluating epoch 32:
+2020-06-14 15:35:57: Epoch [32]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-14 15:35:57: Start epoch 33, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 15:44:40: Epoch [34]   time cost: 1555.35 sec (0.43 h)
+2020-06-14 15:44:42: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0035.pth
+2020-06-14 15:44:42: Start evaluating epoch 34:
+2020-06-14 15:46:02: Epoch [34]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-14 15:46:02: Start epoch 35, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 15:47:52: Epoch [9]   time cost: 1555.52 sec (0.43 h)
+2020-06-14 15:47:52: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0010.pth
+2020-06-14 15:47:52: Start evaluating epoch 9:
+2020-06-14 15:49:12: Epoch [9]   Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-14 15:49:12: Start epoch 10, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 15:58:46: Epoch [45]   time cost: 1555.93 sec (0.43 h)
+2020-06-14 15:58:47: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0046.pth
+2020-06-14 15:58:47: Start evaluating epoch 45:
+2020-06-14 16:00:18: Epoch [45]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-14 16:00:18: Start epoch 46, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 16:01:56: Epoch [33]   time cost: 1559.52 sec (0.43 h)
+2020-06-14 16:01:57: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0034.pth
+2020-06-14 16:01:57: Start evaluating epoch 33:
+2020-06-14 16:03:30: Epoch [33]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-14 16:03:30: Start epoch 34, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 16:12:07: Epoch [35]   time cost: 1565.59 sec (0.43 h)
+2020-06-14 16:12:10: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0036.pth
+2020-06-14 16:12:10: Start evaluating epoch 35:
+2020-06-14 16:13:37: Epoch [35]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-14 16:13:37: Start epoch 36, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 16:15:14: Epoch [10]   time cost: 1562.22 sec (0.43 h)
+2020-06-14 16:15:15: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0011.pth
+2020-06-14 16:15:15: Start evaluating epoch 10:
+2020-06-14 16:16:42: Epoch [10]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-14 16:16:42: Start epoch 11, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 16:26:06: Epoch [46]   time cost: 1548.08 sec (0.43 h)
+2020-06-14 16:26:07: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0047.pth
+2020-06-14 16:26:07: Start evaluating epoch 46:
+2020-06-14 16:27:31: Epoch [46]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-14 16:27:31: Start epoch 47, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 16:29:34: Epoch [34]   time cost: 1563.40 sec (0.43 h)
+2020-06-14 16:29:35: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0035.pth
+2020-06-14 16:29:35: Start evaluating epoch 34:
+2020-06-14 16:31:08: Epoch [34]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-14 16:31:08: Start epoch 35, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 16:39:24: Epoch [36]   time cost: 1547.14 sec (0.43 h)
+2020-06-14 16:39:24: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0037.pth
+2020-06-14 16:39:24: Start evaluating epoch 36:
+2020-06-14 16:40:47: Epoch [36]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-14 16:40:47: Start epoch 37, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 16:42:54: Epoch [11]   time cost: 1572.14 sec (0.44 h)
+2020-06-14 16:42:55: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0012.pth
+2020-06-14 16:42:55: Start evaluating epoch 11:
+2020-06-14 16:44:25: Epoch [11]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-14 16:44:25: Start epoch 12, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 16:53:21: Epoch [47]   time cost: 1550.23 sec (0.43 h)
+2020-06-14 16:53:23: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0048.pth
+2020-06-14 16:53:23: Start evaluating epoch 47:
+2020-06-14 16:54:45: Epoch [47]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-14 16:54:45: Start epoch 48, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 16:57:27: Epoch [35]   time cost: 1578.27 sec (0.44 h)
+2020-06-14 16:57:27: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0036.pth
+2020-06-14 16:57:27: Start evaluating epoch 35:
+2020-06-14 16:58:49: Epoch [35]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-14 16:58:49: Start epoch 36, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 17:06:46: Epoch [37]   time cost: 1558.66 sec (0.43 h)
+2020-06-14 17:06:47: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0038.pth
+2020-06-14 17:06:47: Start evaluating epoch 37:
+2020-06-14 17:08:07: Epoch [37]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-14 17:08:07: Start epoch 38, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 17:10:23: Epoch [12]   time cost: 1558.71 sec (0.43 h)
+2020-06-14 17:10:24: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0013.pth
+2020-06-14 17:10:24: Start evaluating epoch 12:
+2020-06-14 17:11:40: Epoch [12]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-14 17:11:40: Start epoch 13, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 17:20:52: Epoch [48]   time cost: 1566.88 sec (0.44 h)
+2020-06-14 17:20:53: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0049.pth
+2020-06-14 17:20:53: Start evaluating epoch 48:
+2020-06-14 17:22:18: Epoch [48]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-14 17:22:18: Start epoch 49, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 17:24:49: Epoch [36]   time cost: 1560.15 sec (0.43 h)
+2020-06-14 17:24:49: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0037.pth
+2020-06-14 17:24:49: Start evaluating epoch 36:
+2020-06-14 17:26:39: Epoch [36]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-14 17:26:39: Start epoch 37, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 17:33:57: Epoch [38]   time cost: 1550.04 sec (0.43 h)
+2020-06-14 17:33:58: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0039.pth
+2020-06-14 17:33:58: Start evaluating epoch 38:
+2020-06-14 17:35:23: Epoch [38]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-14 17:35:23: Start epoch 39, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 17:38:04: Epoch [13]   time cost: 1584.08 sec (0.44 h)
+2020-06-14 17:38:05: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0014.pth
+2020-06-14 17:38:05: Start evaluating epoch 13:
+2020-06-14 17:39:23: Epoch [13]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-14 17:39:23: Start epoch 14, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 17:48:20: Epoch [49]   time cost: 1562.28 sec (0.43 h)
+2020-06-14 17:48:21: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0050.pth
+2020-06-14 17:48:21: Start evaluating epoch 49:
+2020-06-14 17:49:44: Epoch [49]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-14 17:49:44: Start epoch 50, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 17:53:31: Epoch [37]   time cost: 1611.39 sec (0.45 h)
+2020-06-14 17:53:31: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0038.pth
+2020-06-14 17:53:31: Start evaluating epoch 37:
+2020-06-14 17:55:41: Epoch [37]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-14 17:55:41: Start epoch 38, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 18:01:22: Epoch [39]   time cost: 1558.28 sec (0.43 h)
+2020-06-14 18:01:22: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0040.pth
+2020-06-14 18:01:22: Start evaluating epoch 39:
+2020-06-14 18:02:46: Epoch [39]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-14 18:02:46: Start epoch 40, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 18:05:28: Epoch [14]   time cost: 1564.86 sec (0.43 h)
+2020-06-14 18:05:29: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0015.pth
+2020-06-14 18:05:29: Start evaluating epoch 14:
+2020-06-14 18:06:46: Epoch [14]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-14 18:06:46: Start epoch 15, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 18:16:29: Epoch [50]   time cost: 1605.05 sec (0.45 h)
+2020-06-14 18:16:30: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0051.pth
+2020-06-14 18:16:30: Start evaluating epoch 50:
+2020-06-14 18:17:51: Epoch [50]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-14 18:17:51: Start epoch 51, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 18:23:22: Epoch [38]   time cost: 1661.32 sec (0.46 h)
+2020-06-14 18:23:23: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0039.pth
+2020-06-14 18:23:23: Start evaluating epoch 38:
+2020-06-14 18:24:45: Epoch [38]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-14 18:24:45: Start epoch 39, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 18:29:08: Epoch [40]   time cost: 1581.43 sec (0.44 h)
+2020-06-14 18:29:09: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0041.pth
+2020-06-14 18:29:09: Start evaluating epoch 40:
+2020-06-14 18:30:30: Epoch [40]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-14 18:30:30: Start epoch 41, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 18:32:49: Epoch [15]   time cost: 1563.10 sec (0.43 h)
+2020-06-14 18:32:50: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0016.pth
+2020-06-14 18:32:50: Start evaluating epoch 15:
+2020-06-14 18:34:08: Epoch [15]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-14 18:34:08: Start epoch 16, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 18:44:05: Epoch [51]   time cost: 1573.72 sec (0.44 h)
+2020-06-14 18:44:06: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0052.pth
+2020-06-14 18:44:06: Start evaluating epoch 51:
+2020-06-14 18:45:38: Epoch [51]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-14 18:45:38: Start epoch 52, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 18:50:45: Epoch [39]   time cost: 1559.11 sec (0.43 h)
+2020-06-14 18:50:45: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0040.pth
+2020-06-14 18:50:45: Start evaluating epoch 39:
+2020-06-14 18:52:06: Epoch [39]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-14 18:52:06: Start epoch 40, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 18:56:24: Epoch [41]   time cost: 1554.64 sec (0.43 h)
+2020-06-14 18:56:26: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0042.pth
+2020-06-14 18:56:26: Start evaluating epoch 41:
+2020-06-14 18:57:44: Epoch [41]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-14 18:57:44: Start epoch 42, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 19:00:39: Epoch [16]   time cost: 1590.93 sec (0.44 h)
+2020-06-14 19:00:39: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0017.pth
+2020-06-14 19:00:39: Start evaluating epoch 16:
+2020-06-14 19:01:53: Epoch [16]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-14 19:01:53: Start epoch 17, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 19:11:48: Epoch [52]   time cost: 1569.69 sec (0.44 h)
+2020-06-14 19:11:49: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0053.pth
+2020-06-14 19:11:49: Start evaluating epoch 52:
+2020-06-14 19:13:14: Epoch [52]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-14 19:13:14: Start epoch 53, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 19:18:12: Epoch [40]   time cost: 1566.00 sec (0.43 h)
+2020-06-14 19:18:13: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0041.pth
+2020-06-14 19:18:13: Start evaluating epoch 40:
+2020-06-14 19:19:42: Epoch [40]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-14 19:19:42: Start epoch 41, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 19:23:43: Epoch [42]   time cost: 1558.59 sec (0.43 h)
+2020-06-14 19:23:43: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0043.pth
+2020-06-14 19:23:43: Start evaluating epoch 42:
+2020-06-14 19:25:09: Epoch [42]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-14 19:25:09: Start epoch 43, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 19:27:55: Epoch [17]   time cost: 1561.74 sec (0.43 h)
+2020-06-14 19:27:55: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0018.pth
+2020-06-14 19:27:55: Start evaluating epoch 17:
+2020-06-14 19:29:08: Epoch [17]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-14 19:29:08: Start epoch 18, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 19:39:10: Epoch [53]   time cost: 1556.90 sec (0.43 h)
+2020-06-14 19:39:12: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0054.pth
+2020-06-14 19:39:12: Start evaluating epoch 53:
+2020-06-14 19:40:33: Epoch [53]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-14 19:40:33: Start epoch 54, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 19:45:31: Epoch [41]   time cost: 1549.86 sec (0.43 h)
+2020-06-14 19:45:32: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0042.pth
+2020-06-14 19:45:32: Start evaluating epoch 41:
+2020-06-14 19:46:55: Epoch [41]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-14 19:46:55: Start epoch 42, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 19:51:02: Epoch [43]   time cost: 1552.80 sec (0.43 h)
+2020-06-14 19:51:03: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0044.pth
+2020-06-14 19:51:03: Start evaluating epoch 43:
+2020-06-14 19:52:28: Epoch [43]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-14 19:52:28: Start epoch 44, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 19:54:51: Epoch [18]   time cost: 1542.67 sec (0.43 h)
+2020-06-14 19:54:51: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0019.pth
+2020-06-14 19:54:51: Start evaluating epoch 18:
+2020-06-14 19:56:07: Epoch [18]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-14 19:56:07: Start epoch 19, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 20:06:44: Epoch [54]   time cost: 1570.44 sec (0.44 h)
+2020-06-14 20:06:45: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0055.pth
+2020-06-14 20:06:45: Start evaluating epoch 54:
+2020-06-14 20:08:03: Epoch [54]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-14 20:08:03: Start epoch 55, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 20:13:04: Epoch [42]   time cost: 1569.35 sec (0.44 h)
+2020-06-14 20:13:04: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0043.pth
+2020-06-14 20:13:04: Start evaluating epoch 42:
+2020-06-14 20:14:29: Epoch [42]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-14 20:14:29: Start epoch 43, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 20:18:14: Epoch [44]   time cost: 1545.19 sec (0.43 h)
+2020-06-14 20:18:16: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0045.pth
+2020-06-14 20:18:16: Start evaluating epoch 44:
+2020-06-14 20:19:35: Epoch [44]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-14 20:19:35: Start epoch 45, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 20:22:11: Epoch [19]   time cost: 1563.41 sec (0.43 h)
+2020-06-14 20:22:11: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0020.pth
+2020-06-14 20:22:11: Start evaluating epoch 19:
+2020-06-14 20:23:24: Epoch [19]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-14 20:23:24: Start epoch 20, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 20:34:02: Epoch [55]   time cost: 1558.29 sec (0.43 h)
+2020-06-14 20:34:03: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0056.pth
+2020-06-14 20:34:03: Start evaluating epoch 55:
+2020-06-14 20:36:07: Epoch [55]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-14 20:36:07: Start epoch 56, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 20:40:33: Epoch [43]   time cost: 1563.84 sec (0.43 h)
+2020-06-14 20:40:33: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0044.pth
+2020-06-14 20:40:33: Start evaluating epoch 43:
+2020-06-14 20:41:56: Epoch [43]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-14 20:41:56: Start epoch 44, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 20:45:21: Epoch [45]   time cost: 1545.47 sec (0.43 h)
+2020-06-14 20:45:22: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0046.pth
+2020-06-14 20:45:22: Start evaluating epoch 45:
+2020-06-14 20:46:35: Epoch [45]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-14 20:46:35: Start epoch 46, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 20:49:09: Epoch [20]   time cost: 1544.58 sec (0.43 h)
+2020-06-14 20:49:09: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0021.pth
+2020-06-14 20:49:09: Start evaluating epoch 20:
+2020-06-14 20:50:26: Epoch [20]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-14 20:50:26: Start epoch 21, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 21:02:08: Epoch [56]   time cost: 1561.35 sec (0.43 h)
+2020-06-14 21:02:09: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0057.pth
+2020-06-14 21:02:09: Start evaluating epoch 56:
+2020-06-14 21:03:35: Epoch [56]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-14 21:03:35: Start epoch 57, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 21:07:55: Epoch [44]   time cost: 1558.98 sec (0.43 h)
+2020-06-14 21:07:58: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0045.pth
+2020-06-14 21:07:58: Start evaluating epoch 44:
+2020-06-14 21:09:24: Epoch [44]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-14 21:09:24: Start epoch 45, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 21:12:30: Epoch [46]   time cost: 1554.23 sec (0.43 h)
+2020-06-14 21:12:32: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0047.pth
+2020-06-14 21:12:32: Start evaluating epoch 46:
+2020-06-14 21:13:54: Epoch [46]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-14 21:13:54: Start epoch 47, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 21:16:30: Epoch [21]   time cost: 1563.91 sec (0.43 h)
+2020-06-14 21:16:31: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0022.pth
+2020-06-14 21:16:31: Start evaluating epoch 21:
+2020-06-14 21:17:58: Epoch [21]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-14 21:17:58: Start epoch 22, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 21:29:35: Epoch [57]   time cost: 1560.33 sec (0.43 h)
+2020-06-14 21:29:36: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0058.pth
+2020-06-14 21:29:36: Start evaluating epoch 57:
+2020-06-14 21:31:18: Epoch [57]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-14 21:31:18: Start epoch 58, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 21:35:33: Epoch [45]   time cost: 1568.60 sec (0.44 h)
+2020-06-14 21:35:33: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0046.pth
+2020-06-14 21:35:33: Start evaluating epoch 45:
+2020-06-14 21:37:06: Epoch [45]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-14 21:37:06: Start epoch 46, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 21:41:03: Epoch [47]   time cost: 1628.08 sec (0.45 h)
+2020-06-14 21:41:04: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0048.pth
+2020-06-14 21:41:04: Start evaluating epoch 47:
+2020-06-14 21:42:56: Epoch [47]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-14 21:42:56: Start epoch 48, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 21:45:10: Epoch [22]   time cost: 1631.48 sec (0.45 h)
+2020-06-14 21:45:10: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0023.pth
+2020-06-14 21:45:10: Start evaluating epoch 22:
+2020-06-14 21:46:42: Epoch [22]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-14 21:46:42: Start epoch 23, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 21:57:22: Epoch [58]   time cost: 1564.16 sec (0.43 h)
+2020-06-14 21:57:23: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0059.pth
+2020-06-14 21:57:23: Start evaluating epoch 58:
+2020-06-14 21:58:50: Epoch [58]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-14 21:58:50: Start epoch 59, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 22:03:27: Epoch [46]   time cost: 1581.65 sec (0.44 h)
+2020-06-14 22:03:28: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0047.pth
+2020-06-14 22:03:28: Start evaluating epoch 46:
+2020-06-14 22:04:55: Epoch [46]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-14 22:04:55: Start epoch 47, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 22:09:27: Epoch [48]   time cost: 1591.61 sec (0.44 h)
+2020-06-14 22:09:29: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0049.pth
+2020-06-14 22:09:29: Start evaluating epoch 48:
+2020-06-14 22:11:02: Epoch [48]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-14 22:11:02: Start epoch 49, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 22:12:40: Epoch [23]   time cost: 1558.68 sec (0.43 h)
+2020-06-14 22:12:41: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0024.pth
+2020-06-14 22:12:41: Start evaluating epoch 23:
+2020-06-14 22:14:07: Epoch [23]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-14 22:14:07: Start epoch 24, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 22:24:41: Epoch [59]   time cost: 1551.39 sec (0.43 h)
+2020-06-14 22:24:43: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0060.pth
+2020-06-14 22:24:43: Start evaluating epoch 59:
+2020-06-14 22:26:08: Epoch [59]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-14 22:26:08: Start epoch 60, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 22:30:54: Epoch [47]   time cost: 1558.45 sec (0.43 h)
+2020-06-14 22:30:55: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0048.pth
+2020-06-14 22:30:55: Start evaluating epoch 47:
+2020-06-14 22:32:18: Epoch [47]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-14 22:32:18: Start epoch 48, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 22:37:10: Epoch [49]   time cost: 1568.03 sec (0.44 h)
+2020-06-14 22:37:12: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0050.pth
+2020-06-14 22:37:12: Start evaluating epoch 49:
+2020-06-14 22:38:35: Epoch [49]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-14 22:38:35: Start epoch 50, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 22:40:03: Epoch [24]   time cost: 1556.44 sec (0.43 h)
+2020-06-14 22:40:04: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0025.pth
+2020-06-14 22:40:04: Start evaluating epoch 24:
+2020-06-14 22:41:25: Epoch [24]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-14 22:41:25: Start epoch 25, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 22:52:25: Epoch [60]   time cost: 1576.99 sec (0.44 h)
+2020-06-14 22:52:26: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0061.pth
+2020-06-14 22:52:26: Start evaluating epoch 60:
+2020-06-14 22:54:15: Epoch [60]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-14 22:54:15: Start epoch 61, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 22:58:20: Epoch [48]   time cost: 1561.58 sec (0.43 h)
+2020-06-14 22:58:21: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0049.pth
+2020-06-14 22:58:21: Start evaluating epoch 48:
+2020-06-14 22:59:52: Epoch [48]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-14 22:59:52: Start epoch 49, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 23:04:32: Epoch [50]   time cost: 1557.05 sec (0.43 h)
+2020-06-14 23:04:33: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0051.pth
+2020-06-14 23:04:33: Start evaluating epoch 50:
+2020-06-14 23:05:54: Epoch [50]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-14 23:05:54: Start epoch 51, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 23:07:22: Epoch [25]   time cost: 1557.13 sec (0.43 h)
+2020-06-14 23:07:23: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0026.pth
+2020-06-14 23:07:23: Start evaluating epoch 25:
+2020-06-14 23:08:47: Epoch [25]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-14 23:08:47: Start epoch 26, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 23:20:33: Epoch [61]   time cost: 1578.11 sec (0.44 h)
+2020-06-14 23:20:34: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0062.pth
+2020-06-14 23:20:34: Start evaluating epoch 61:
+2020-06-14 23:21:55: Epoch [61]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-14 23:21:55: Start epoch 62, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 23:26:13: Epoch [49]   time cost: 1580.66 sec (0.44 h)
+2020-06-14 23:26:14: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0050.pth
+2020-06-14 23:26:14: Start evaluating epoch 49:
+2020-06-14 23:27:38: Epoch [49]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-14 23:27:38: Start epoch 50, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 23:31:54: Epoch [51]   time cost: 1559.95 sec (0.43 h)
+2020-06-14 23:31:55: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0052.pth
+2020-06-14 23:31:55: Start evaluating epoch 51:
+2020-06-14 23:33:20: Epoch [51]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-14 23:33:20: Start epoch 52, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 23:34:32: Epoch [26]   time cost: 1544.46 sec (0.43 h)
+2020-06-14 23:34:33: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0027.pth
+2020-06-14 23:34:33: Start evaluating epoch 26:
+2020-06-14 23:35:50: Epoch [26]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-14 23:35:50: Start epoch 27, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 23:48:29: Epoch [62]   time cost: 1593.44 sec (0.44 h)
+2020-06-14 23:48:30: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0063.pth
+2020-06-14 23:48:30: Start evaluating epoch 62:
+2020-06-14 23:50:13: Epoch [62]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-14 23:50:13: Start epoch 63, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 23:53:55: Epoch [50]   time cost: 1576.97 sec (0.44 h)
+2020-06-14 23:53:56: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0051.pth
+2020-06-14 23:53:56: Start evaluating epoch 50:
+2020-06-14 23:55:24: Epoch [50]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-14 23:55:24: Start epoch 51, iter stride 4, train steps 0, eval steps: 0
+2020-06-14 23:59:41: Epoch [52]   time cost: 1581.14 sec (0.44 h)
+2020-06-14 23:59:42: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0053.pth
+2020-06-14 23:59:42: Start evaluating epoch 52:
+2020-06-15 00:01:07: Epoch [52]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 00:01:07: Start epoch 53, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 00:02:04: Epoch [27]   time cost: 1573.10 sec (0.44 h)
+2020-06-15 00:02:04: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0028.pth
+2020-06-15 00:02:04: Start evaluating epoch 27:
+2020-06-15 00:03:21: Epoch [27]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 00:03:21: Start epoch 28, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 00:16:41: Epoch [63]   time cost: 1588.81 sec (0.44 h)
+2020-06-15 00:16:42: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0064.pth
+2020-06-15 00:16:42: Start evaluating epoch 63:
+2020-06-15 00:18:05: Epoch [63]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 00:18:05: Start epoch 64, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 00:22:22: Epoch [51]   time cost: 1617.59 sec (0.45 h)
+2020-06-15 00:22:24: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0052.pth
+2020-06-15 00:22:24: Start evaluating epoch 51:
+2020-06-15 00:23:51: Epoch [51]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 00:23:51: Start epoch 52, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 00:27:04: Epoch [53]   time cost: 1557.64 sec (0.43 h)
+2020-06-15 00:27:05: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0054.pth
+2020-06-15 00:27:05: Start evaluating epoch 53:
+2020-06-15 00:28:28: Epoch [53]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 00:28:28: Start epoch 54, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 00:29:27: Epoch [28]   time cost: 1565.81 sec (0.43 h)
+2020-06-15 00:29:28: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0029.pth
+2020-06-15 00:29:28: Start evaluating epoch 28:
+2020-06-15 00:30:45: Epoch [28]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 00:30:45: Start epoch 29, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 00:45:10: Epoch [64]   time cost: 1624.40 sec (0.45 h)
+2020-06-15 00:45:11: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0065.pth
+2020-06-15 00:45:11: Start evaluating epoch 64:
+2020-06-15 00:46:37: Epoch [64]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 00:46:37: Start epoch 65, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 00:50:06: Epoch [52]   time cost: 1575.29 sec (0.44 h)
+2020-06-15 00:50:07: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0053.pth
+2020-06-15 00:50:07: Start evaluating epoch 52:
+2020-06-15 00:51:38: Epoch [52]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 00:51:38: Start epoch 53, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 00:54:24: Epoch [54]   time cost: 1555.73 sec (0.43 h)
+2020-06-15 00:54:24: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0055.pth
+2020-06-15 00:54:24: Start evaluating epoch 54:
+2020-06-15 00:55:47: Epoch [54]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 00:55:47: Start epoch 55, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 00:59:12: Epoch [29]   time cost: 1706.33 sec (0.47 h)
+2020-06-15 00:59:12: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0030.pth
+2020-06-15 00:59:12: Start evaluating epoch 29:
+2020-06-15 01:00:33: Epoch [29]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 01:00:33: Start epoch 30, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 01:17:22: Epoch [65]   time cost: 1844.47 sec (0.51 h)
+2020-06-15 01:17:25: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0066.pth
+2020-06-15 01:17:25: Start evaluating epoch 65:
+2020-06-15 01:20:16: Epoch [65]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 01:20:16: Start epoch 66, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 01:21:18: Epoch [53]   time cost: 1780.45 sec (0.49 h)
+2020-06-15 01:21:19: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0054.pth
+2020-06-15 01:21:19: Start evaluating epoch 53:
+2020-06-15 01:23:12: Epoch [53]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 01:23:12: Start epoch 54, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 01:25:45: Epoch [55]   time cost: 1798.01 sec (0.50 h)
+2020-06-15 01:25:46: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0056.pth
+2020-06-15 01:25:46: Start evaluating epoch 55:
+2020-06-15 01:27:18: Epoch [55]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 01:27:18: Start epoch 56, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 01:28:39: Epoch [30]   time cost: 1686.32 sec (0.47 h)
+2020-06-15 01:28:40: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0031.pth
+2020-06-15 01:28:40: Start evaluating epoch 30:
+2020-06-15 01:30:14: Epoch [30]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 01:30:14: Start epoch 31, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 01:47:13: Epoch [66]   time cost: 1617.12 sec (0.45 h)
+2020-06-15 01:47:14: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0067.pth
+2020-06-15 01:47:14: Start evaluating epoch 66:
+2020-06-15 01:49:00: Epoch [66]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 01:49:00: Start epoch 67, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 01:49:39: Epoch [54]   time cost: 1587.15 sec (0.44 h)
+2020-06-15 01:49:40: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0055.pth
+2020-06-15 01:49:40: Start evaluating epoch 54:
+2020-06-15 01:51:23: Epoch [54]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 01:51:23: Start epoch 55, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 01:53:41: Epoch [56]   time cost: 1583.59 sec (0.44 h)
+2020-06-15 01:53:42: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0057.pth
+2020-06-15 01:53:42: Start evaluating epoch 56:
+2020-06-15 01:55:07: Epoch [56]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 01:55:07: Start epoch 57, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 01:56:20: Epoch [31]   time cost: 1566.10 sec (0.44 h)
+2020-06-15 01:56:20: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0032.pth
+2020-06-15 01:56:20: Start evaluating epoch 31:
+2020-06-15 01:57:38: Epoch [31]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 01:57:38: Start epoch 32, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 02:15:58: Epoch [67]   time cost: 1617.55 sec (0.45 h)
+2020-06-15 02:15:58: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0068.pth
+2020-06-15 02:15:58: Start evaluating epoch 67:
+2020-06-15 02:17:20: Epoch [67]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 02:17:20: Start epoch 68, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 02:17:38: Epoch [55]   time cost: 1575.05 sec (0.44 h)
+2020-06-15 02:17:39: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0056.pth
+2020-06-15 02:17:39: Start evaluating epoch 55:
+2020-06-15 02:19:06: Epoch [55]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 02:19:06: Start epoch 56, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 02:21:13: Epoch [57]   time cost: 1566.84 sec (0.44 h)
+2020-06-15 02:21:14: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0058.pth
+2020-06-15 02:21:14: Start evaluating epoch 57:
+2020-06-15 02:22:35: Epoch [57]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 02:22:35: Start epoch 58, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 02:23:54: Epoch [32]   time cost: 1576.04 sec (0.44 h)
+2020-06-15 02:23:55: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0033.pth
+2020-06-15 02:23:55: Start evaluating epoch 32:
+2020-06-15 02:25:11: Epoch [32]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 02:25:11: Start epoch 33, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 02:43:35: Epoch [68]   time cost: 1575.10 sec (0.44 h)
+2020-06-15 02:43:36: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0069.pth
+2020-06-15 02:43:36: Start evaluating epoch 68:
+2020-06-15 02:45:03: Epoch [68]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 02:45:03: Start epoch 69, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 02:45:15: Epoch [56]   time cost: 1568.72 sec (0.44 h)
+2020-06-15 02:45:15: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0057.pth
+2020-06-15 02:45:15: Start evaluating epoch 56:
+2020-06-15 02:46:45: Epoch [56]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 02:46:45: Start epoch 57, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 02:48:26: Epoch [58]   time cost: 1551.04 sec (0.43 h)
+2020-06-15 02:48:27: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0059.pth
+2020-06-15 02:48:27: Start evaluating epoch 58:
+2020-06-15 02:50:04: Epoch [58]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 02:50:04: Start epoch 59, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 02:51:14: Epoch [33]   time cost: 1563.53 sec (0.43 h)
+2020-06-15 02:51:15: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0034.pth
+2020-06-15 02:51:15: Start evaluating epoch 33:
+2020-06-15 02:52:34: Epoch [33]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 02:52:34: Start epoch 34, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 03:11:21: Epoch [69]   time cost: 1577.92 sec (0.44 h)
+2020-06-15 03:11:21: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0070.pth
+2020-06-15 03:11:21: Start evaluating epoch 69:
+2020-06-15 03:12:49: Epoch [57]   time cost: 1564.02 sec (0.43 h)
+2020-06-15 03:12:50: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0058.pth
+2020-06-15 03:12:50: Start evaluating epoch 57:
+2020-06-15 03:12:53: Epoch [69]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 03:12:54: Start epoch 70, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 03:14:08: Epoch [57]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 03:14:08: Start epoch 58, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 03:16:06: Epoch [59]   time cost: 1561.80 sec (0.43 h)
+2020-06-15 03:16:07: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0060.pth
+2020-06-15 03:16:07: Start evaluating epoch 59:
+2020-06-15 03:17:27: Epoch [59]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 03:17:27: Start epoch 60, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 03:18:27: Epoch [34]   time cost: 1552.82 sec (0.43 h)
+2020-06-15 03:18:28: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0035.pth
+2020-06-15 03:18:28: Start evaluating epoch 34:
+2020-06-15 03:19:43: Epoch [34]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 03:19:43: Start epoch 35, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 03:38:58: Epoch [70]   time cost: 1564.09 sec (0.43 h)
+2020-06-15 03:38:58: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0071.pth
+2020-06-15 03:38:58: Start evaluating epoch 70:
+2020-06-15 03:40:08: Epoch [58]   time cost: 1560.42 sec (0.43 h)
+2020-06-15 03:40:09: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0059.pth
+2020-06-15 03:40:09: Start evaluating epoch 58:
+2020-06-15 03:40:22: Epoch [70]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 03:40:22: Start epoch 71, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 03:41:30: Epoch [58]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 03:41:30: Start epoch 59, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 03:43:19: Epoch [60]   time cost: 1552.49 sec (0.43 h)
+2020-06-15 03:43:20: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0061.pth
+2020-06-15 03:43:20: Start evaluating epoch 60:
+2020-06-15 03:44:50: Epoch [60]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 03:44:50: Start epoch 61, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 03:45:44: Epoch [35]   time cost: 1561.50 sec (0.43 h)
+2020-06-15 03:45:45: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0036.pth
+2020-06-15 03:45:45: Start evaluating epoch 35:
+2020-06-15 03:47:01: Epoch [35]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 03:47:01: Start epoch 36, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 04:06:43: Epoch [71]   time cost: 1580.97 sec (0.44 h)
+2020-06-15 04:06:43: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0072.pth
+2020-06-15 04:06:43: Start evaluating epoch 71:
+2020-06-15 04:07:34: Epoch [59]   time cost: 1564.15 sec (0.43 h)
+2020-06-15 04:07:35: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0060.pth
+2020-06-15 04:07:35: Start evaluating epoch 59:
+2020-06-15 04:08:17: Epoch [71]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 04:08:17: Start epoch 72, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 04:09:02: Epoch [59]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 04:09:02: Start epoch 60, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 04:10:50: Epoch [61]   time cost: 1560.18 sec (0.43 h)
+2020-06-15 04:10:50: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0062.pth
+2020-06-15 04:10:50: Start evaluating epoch 61:
+2020-06-15 04:12:14: Epoch [61]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 04:12:14: Start epoch 62, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 04:12:45: Epoch [36]   time cost: 1543.95 sec (0.43 h)
+2020-06-15 04:12:45: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0037.pth
+2020-06-15 04:12:45: Start evaluating epoch 36:
+2020-06-15 04:14:03: Epoch [36]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 04:14:03: Start epoch 37, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 04:34:32: Epoch [72]   time cost: 1574.53 sec (0.44 h)
+2020-06-15 04:34:32: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0073.pth
+2020-06-15 04:34:32: Start evaluating epoch 72:
+2020-06-15 04:35:01: Epoch [60]   time cost: 1559.41 sec (0.43 h)
+2020-06-15 04:35:02: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0061.pth
+2020-06-15 04:35:02: Start evaluating epoch 60:
+2020-06-15 04:35:59: Epoch [72]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 04:36:00: Start epoch 73, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 04:36:26: Epoch [60]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 04:36:26: Start epoch 61, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 04:38:09: Epoch [62]   time cost: 1555.31 sec (0.43 h)
+2020-06-15 04:38:09: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0063.pth
+2020-06-15 04:38:09: Start evaluating epoch 62:
+2020-06-15 04:39:34: Epoch [62]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 04:39:34: Start epoch 63, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 04:40:07: Epoch [37]   time cost: 1563.38 sec (0.43 h)
+2020-06-15 04:40:07: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0038.pth
+2020-06-15 04:40:07: Start evaluating epoch 37:
+2020-06-15 04:41:25: Epoch [37]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 04:41:25: Start epoch 38, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 05:02:20: Epoch [73]   time cost: 1580.52 sec (0.44 h)
+2020-06-15 05:02:21: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0074.pth
+2020-06-15 05:02:21: Start evaluating epoch 73:
+2020-06-15 05:02:30: Epoch [61]   time cost: 1563.91 sec (0.43 h)
+2020-06-15 05:02:30: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0062.pth
+2020-06-15 05:02:30: Start evaluating epoch 61:
+2020-06-15 05:03:43: Epoch [73]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 05:03:43: Start epoch 74, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 05:03:54: Epoch [61]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 05:03:54: Start epoch 62, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 05:05:28: Epoch [63]   time cost: 1554.13 sec (0.43 h)
+2020-06-15 05:05:28: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0064.pth
+2020-06-15 05:05:28: Start evaluating epoch 63:
+2020-06-15 05:06:48: Epoch [63]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 05:06:48: Start epoch 64, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 05:07:10: Epoch [38]   time cost: 1545.30 sec (0.43 h)
+2020-06-15 05:07:10: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0039.pth
+2020-06-15 05:07:10: Start evaluating epoch 38:
+2020-06-15 05:08:33: Epoch [38]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 05:08:33: Start epoch 39, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 05:30:22: Epoch [74]   time cost: 1599.02 sec (0.44 h)
+2020-06-15 05:30:23: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0075.pth
+2020-06-15 05:30:23: Start evaluating epoch 74:
+2020-06-15 05:30:42: Epoch [62]   time cost: 1608.08 sec (0.45 h)
+2020-06-15 05:30:43: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0063.pth
+2020-06-15 05:30:43: Start evaluating epoch 62:
+2020-06-15 05:31:59: Epoch [74]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 05:31:59: Start epoch 75, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 05:32:04: Epoch [62]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 05:32:04: Start epoch 63, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 05:32:38: Epoch [64]   time cost: 1549.22 sec (0.43 h)
+2020-06-15 05:32:38: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0065.pth
+2020-06-15 05:32:38: Start evaluating epoch 64:
+2020-06-15 05:34:01: Epoch [64]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 05:34:01: Start epoch 65, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 05:34:16: Epoch [39]   time cost: 1543.63 sec (0.43 h)
+2020-06-15 05:34:17: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0040.pth
+2020-06-15 05:34:17: Start evaluating epoch 39:
+2020-06-15 05:35:35: Epoch [39]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 05:35:35: Start epoch 40, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 05:58:39: Epoch [63]   time cost: 1595.39 sec (0.44 h)
+2020-06-15 05:58:40: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0064.pth
+2020-06-15 05:58:40: Start evaluating epoch 63:
+2020-06-15 05:59:03: Epoch [75]   time cost: 1624.06 sec (0.45 h)
+2020-06-15 05:59:04: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0076.pth
+2020-06-15 05:59:04: Start evaluating epoch 75:
+2020-06-15 06:00:10: Epoch [65]   time cost: 1569.37 sec (0.44 h)
+2020-06-15 06:00:11: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0066.pth
+2020-06-15 06:00:11: Start evaluating epoch 65:
+2020-06-15 06:00:33: Epoch [63]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 06:00:33: Start epoch 64, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 06:01:16: Epoch [75]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 06:01:16: Start epoch 76, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 06:01:29: Epoch [40]   time cost: 1553.43 sec (0.43 h)
+2020-06-15 06:01:29: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0041.pth
+2020-06-15 06:01:29: Start evaluating epoch 40:
+2020-06-15 06:01:40: Epoch [65]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 06:01:40: Start epoch 66, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 06:02:54: Epoch [40]  Batch [1]    Speed   0.0 (+ 1) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 06:02:54: Start epoch 41, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 06:27:04: Epoch [64]   time cost: 1590.60 sec (0.44 h)
+2020-06-15 06:27:05: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0065.pth
+2020-06-15 06:27:05: Start evaluating epoch 64:
+2020-06-15 06:27:39: Epoch [66]   time cost: 1559.04 sec (0.43 h)
+2020-06-15 06:27:39: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0067.pth
+2020-06-15 06:27:39: Start evaluating epoch 66:
+2020-06-15 06:27:46: Epoch [76]   time cost: 1590.21 sec (0.44 h)
+2020-06-15 06:27:47: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0077.pth
+2020-06-15 06:27:47: Start evaluating epoch 76:
+2020-06-15 06:28:44: Epoch [64]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 06:28:44: Start epoch 65, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 06:28:50: Epoch [41]   time cost: 1556.68 sec (0.43 h)
+2020-06-15 06:28:51: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0042.pth
+2020-06-15 06:28:51: Start evaluating epoch 41:
+2020-06-15 06:29:13: Epoch [66]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 06:29:13: Start epoch 67, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 06:29:27: Epoch [76]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 06:29:27: Start epoch 77, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 06:30:08: Epoch [41]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 06:30:08: Start epoch 42, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 06:55:11: Epoch [65]   time cost: 1586.16 sec (0.44 h)
+2020-06-15 06:55:18: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0066.pth
+2020-06-15 06:55:18: Start evaluating epoch 65:
+2020-06-15 06:55:38: Epoch [67]   time cost: 1585.10 sec (0.44 h)
+2020-06-15 06:55:39: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0068.pth
+2020-06-15 06:55:39: Start evaluating epoch 67:
+2020-06-15 06:55:44: Epoch [77]   time cost: 1576.74 sec (0.44 h)
+2020-06-15 06:55:44: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0078.pth
+2020-06-15 06:55:44: Start evaluating epoch 77:
+2020-06-15 06:56:24: Epoch [42]   time cost: 1575.53 sec (0.44 h)
+2020-06-15 06:56:24: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0043.pth
+2020-06-15 06:56:24: Start evaluating epoch 42:
+2020-06-15 06:56:40: Epoch [65]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 06:56:40: Start epoch 66, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 06:57:02: Epoch [67]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 06:57:02: Start epoch 68, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 06:57:11: Epoch [77]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 06:57:11: Start epoch 78, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 06:57:44: Epoch [42]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 06:57:45: Start epoch 43, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 07:22:51: Epoch [68]   time cost: 1549.55 sec (0.43 h)
+2020-06-15 07:22:52: Epoch [66]   time cost: 1571.76 sec (0.44 h)
+2020-06-15 07:22:52: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0069.pth
+2020-06-15 07:22:52: Start evaluating epoch 68:
+2020-06-15 07:22:53: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0067.pth
+2020-06-15 07:22:53: Start evaluating epoch 66:
+2020-06-15 07:23:33: Epoch [78]   time cost: 1582.06 sec (0.44 h)
+2020-06-15 07:23:34: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0079.pth
+2020-06-15 07:23:34: Start evaluating epoch 78:
+2020-06-15 07:23:38: Epoch [43]   time cost: 1553.52 sec (0.43 h)
+2020-06-15 07:23:39: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0044.pth
+2020-06-15 07:23:39: Start evaluating epoch 43:
+2020-06-15 07:24:22: Epoch [68]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 07:24:22: Start epoch 69, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 07:24:52: Epoch [66]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 07:24:52: Start epoch 67, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 07:25:11: Epoch [43]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 07:25:11: Start epoch 44, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 07:25:37: Epoch [78]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 07:25:37: Start epoch 79, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 07:50:16: Epoch [69]   time cost: 1553.36 sec (0.43 h)
+2020-06-15 07:50:16: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0070.pth
+2020-06-15 07:50:16: Start evaluating epoch 69:
+2020-06-15 07:51:12: Epoch [44]   time cost: 1561.04 sec (0.43 h)
+2020-06-15 07:51:13: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0045.pth
+2020-06-15 07:51:13: Start evaluating epoch 44:
+2020-06-15 07:51:43: Epoch [67]   time cost: 1611.56 sec (0.45 h)
+2020-06-15 07:51:45: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0068.pth
+2020-06-15 07:51:45: Start evaluating epoch 67:
+2020-06-15 07:51:48: Epoch [69]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 07:51:48: Start epoch 70, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 07:52:37: Epoch [44]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 07:52:37: Start epoch 45, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 07:52:44: Epoch [79]   time cost: 1626.75 sec (0.45 h)
+2020-06-15 07:52:45: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0080.pth
+2020-06-15 07:52:45: Start evaluating epoch 79:
+2020-06-15 07:53:22: Epoch [67]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 07:53:22: Start epoch 68, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 07:54:22: Epoch [79]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 07:54:22: Start epoch 80, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 08:17:57: Epoch [70]   time cost: 1569.62 sec (0.44 h)
+2020-06-15 08:17:58: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0071.pth
+2020-06-15 08:17:58: Start evaluating epoch 70:
+2020-06-15 08:18:22: Epoch [45]   time cost: 1544.64 sec (0.43 h)
+2020-06-15 08:18:22: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0046.pth
+2020-06-15 08:18:22: Start evaluating epoch 45:
+2020-06-15 08:19:25: Epoch [70]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 08:19:26: Start epoch 71, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 08:19:44: Epoch [45]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 08:19:44: Start epoch 46, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 08:19:52: Epoch [68]   time cost: 1590.59 sec (0.44 h)
+2020-06-15 08:19:53: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0069.pth
+2020-06-15 08:19:53: Start evaluating epoch 68:
+2020-06-15 08:20:31: Epoch [80]   time cost: 1569.28 sec (0.44 h)
+2020-06-15 08:20:32: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0081.pth
+2020-06-15 08:20:32: Start evaluating epoch 80:
+2020-06-15 08:21:36: Epoch [68]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 08:21:36: Start epoch 69, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 08:22:37: Epoch [80]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 08:22:37: Start epoch 81, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 08:45:23: Epoch [71]   time cost: 1557.75 sec (0.43 h)
+2020-06-15 08:45:24: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0072.pth
+2020-06-15 08:45:24: Start evaluating epoch 71:
+2020-06-15 08:45:25: Epoch [46]   time cost: 1540.40 sec (0.43 h)
+2020-06-15 08:45:26: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0047.pth
+2020-06-15 08:45:26: Start evaluating epoch 46:
+2020-06-15 08:46:50: Epoch [46]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 08:46:50: Start epoch 47, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 08:46:51: Epoch [71]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 08:46:51: Start epoch 72, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 08:48:06: Epoch [69]   time cost: 1590.27 sec (0.44 h)
+2020-06-15 08:48:06: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0070.pth
+2020-06-15 08:48:06: Start evaluating epoch 69:
+2020-06-15 08:48:51: Epoch [81]   time cost: 1574.07 sec (0.44 h)
+2020-06-15 08:48:52: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0082.pth
+2020-06-15 08:48:52: Start evaluating epoch 81:
+2020-06-15 08:49:35: Epoch [69]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 08:49:35: Start epoch 70, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 08:50:45: Epoch [81]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 08:50:45: Start epoch 82, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 09:12:59: Epoch [72]   time cost: 1567.62 sec (0.44 h)
+2020-06-15 09:13:00: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0073.pth
+2020-06-15 09:13:00: Start evaluating epoch 72:
+2020-06-15 09:13:05: Epoch [47]   time cost: 1575.36 sec (0.44 h)
+2020-06-15 09:13:06: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0048.pth
+2020-06-15 09:13:06: Start evaluating epoch 47:
+2020-06-15 09:14:29: Epoch [47]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 09:14:29: Start epoch 48, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 09:14:31: Epoch [72]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 09:14:31: Start epoch 73, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 09:16:19: Epoch [70]   time cost: 1604.57 sec (0.45 h)
+2020-06-15 09:16:20: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0071.pth
+2020-06-15 09:16:20: Start evaluating epoch 70:
+2020-06-15 09:17:32: Epoch [82]   time cost: 1606.43 sec (0.45 h)
+2020-06-15 09:17:33: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0083.pth
+2020-06-15 09:17:33: Start evaluating epoch 82:
+2020-06-15 09:17:48: Epoch [70]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 09:17:49: Start epoch 71, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 09:19:36: Epoch [82]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 09:19:36: Start epoch 83, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 09:40:45: Epoch [48]   time cost: 1575.79 sec (0.44 h)
+2020-06-15 09:40:46: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0049.pth
+2020-06-15 09:40:46: Start evaluating epoch 48:
+2020-06-15 09:40:56: Epoch [73]   time cost: 1584.68 sec (0.44 h)
+2020-06-15 09:40:57: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0074.pth
+2020-06-15 09:40:57: Start evaluating epoch 73:
+2020-06-15 09:42:05: Epoch [48]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 09:42:05: Start epoch 49, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 09:42:36: Epoch [73]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 09:42:36: Start epoch 74, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 09:44:07: Epoch [71]   time cost: 1578.61 sec (0.44 h)
+2020-06-15 09:44:08: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0072.pth
+2020-06-15 09:44:08: Start evaluating epoch 71:
+2020-06-15 09:45:35: Epoch [71]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 09:45:35: Start epoch 72, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 09:47:30: Epoch [83]   time cost: 1673.70 sec (0.46 h)
+2020-06-15 09:47:31: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0084.pth
+2020-06-15 09:47:31: Start evaluating epoch 83:
+2020-06-15 09:49:17: Epoch [83]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 09:49:17: Start epoch 84, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 10:08:17: Epoch [49]   time cost: 1572.11 sec (0.44 h)
+2020-06-15 10:08:18: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0050.pth
+2020-06-15 10:08:18: Start evaluating epoch 49:
+2020-06-15 10:08:34: Epoch [74]   time cost: 1558.01 sec (0.43 h)
+2020-06-15 10:08:35: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0075.pth
+2020-06-15 10:08:35: Start evaluating epoch 74:
+2020-06-15 10:09:46: Epoch [49]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 10:09:46: Start epoch 50, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 10:10:09: Epoch [74]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 10:10:09: Start epoch 75, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 10:12:16: Epoch [72]   time cost: 1601.20 sec (0.44 h)
+2020-06-15 10:12:17: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0073.pth
+2020-06-15 10:12:17: Start evaluating epoch 72:
+2020-06-15 10:15:02: Epoch [72]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 10:15:02: Start epoch 73, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 10:16:42: Epoch [84]   time cost: 1644.44 sec (0.46 h)
+2020-06-15 10:16:42: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0085.pth
+2020-06-15 10:16:42: Start evaluating epoch 84:
+2020-06-15 10:19:38: Epoch [84]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 10:19:38: Start epoch 85, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 10:38:25: Epoch [75]   time cost: 1696.43 sec (0.47 h)
+2020-06-15 10:38:27: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0076.pth
+2020-06-15 10:38:27: Start evaluating epoch 75:
+2020-06-15 10:38:29: Epoch [50]   time cost: 1722.71 sec (0.48 h)
+2020-06-15 10:38:33: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0051.pth
+2020-06-15 10:38:33: Start evaluating epoch 50:
+2020-06-15 10:43:32: Epoch [50]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 10:43:32: Start epoch 51, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 10:44:06: Epoch [73]   time cost: 1744.09 sec (0.48 h)
+2020-06-15 10:44:07: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0074.pth
+2020-06-15 10:44:07: Start evaluating epoch 73:
+2020-06-15 10:44:10: Epoch [75]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 10:44:14: Start epoch 76, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 10:49:06: Epoch [73]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 10:49:07: Start epoch 74, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 10:51:57: Epoch [85]   time cost: 1939.06 sec (0.54 h)
+2020-06-15 10:51:58: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0086.pth
+2020-06-15 10:51:58: Start evaluating epoch 85:
+2020-06-15 10:55:57: Epoch [85]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 10:55:57: Start epoch 86, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 11:15:17: Epoch [51]   time cost: 1904.74 sec (0.53 h)
+2020-06-15 11:15:19: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0052.pth
+2020-06-15 11:15:19: Start evaluating epoch 51:
+2020-06-15 11:16:07: Epoch [76]   time cost: 1912.52 sec (0.53 h)
+2020-06-15 11:16:08: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0077.pth
+2020-06-15 11:16:08: Start evaluating epoch 76:
+2020-06-15 11:16:58: Epoch [51]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 11:16:58: Start epoch 52, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 11:17:54: Epoch [76]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 11:17:54: Start epoch 77, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 11:19:12: Epoch [74]   time cost: 1805.22 sec (0.50 h)
+2020-06-15 11:19:13: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0075.pth
+2020-06-15 11:19:13: Start evaluating epoch 74:
+2020-06-15 11:21:42: Epoch [74]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 11:21:42: Start epoch 75, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 11:24:59: Epoch [86]   time cost: 1741.89 sec (0.48 h)
+2020-06-15 11:25:00: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0087.pth
+2020-06-15 11:25:00: Start evaluating epoch 86:
+2020-06-15 11:26:52: Epoch [86]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 11:26:52: Start epoch 87, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 11:44:00: Epoch [52]   time cost: 1621.99 sec (0.45 h)
+2020-06-15 11:44:03: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0053.pth
+2020-06-15 11:44:03: Start evaluating epoch 52:
+2020-06-15 11:44:36: Epoch [77]   time cost: 1601.94 sec (0.44 h)
+2020-06-15 11:44:37: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0078.pth
+2020-06-15 11:44:37: Start evaluating epoch 77:
+2020-06-15 11:45:48: Epoch [52]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 11:45:49: Start epoch 53, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 11:46:33: Epoch [77]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 11:46:33: Start epoch 78, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 11:48:55: Epoch [75]   time cost: 1633.52 sec (0.45 h)
+2020-06-15 11:48:56: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0076.pth
+2020-06-15 11:48:56: Start evaluating epoch 75:
+2020-06-15 11:50:44: Epoch [75]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 11:50:44: Start epoch 76, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 11:55:14: Epoch [87]   time cost: 1702.23 sec (0.47 h)
+2020-06-15 11:55:16: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0088.pth
+2020-06-15 11:55:16: Start evaluating epoch 87:
+2020-06-15 11:57:43: Epoch [87]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 11:57:43: Start epoch 88, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 12:12:13: Epoch [53]   time cost: 1584.40 sec (0.44 h)
+2020-06-15 12:12:14: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0054.pth
+2020-06-15 12:12:14: Start evaluating epoch 53:
+2020-06-15 12:13:20: Epoch [78]   time cost: 1607.06 sec (0.45 h)
+2020-06-15 12:13:20: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0079.pth
+2020-06-15 12:13:20: Start evaluating epoch 78:
+2020-06-15 12:13:33: Epoch [53]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 12:13:33: Start epoch 54, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 12:15:06: Epoch [78]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 12:15:06: Start epoch 79, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 12:17:35: Epoch [76]   time cost: 1611.08 sec (0.45 h)
+2020-06-15 12:17:35: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0077.pth
+2020-06-15 12:17:35: Start evaluating epoch 76:
+2020-06-15 12:19:27: Epoch [76]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 12:19:27: Start epoch 77, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 12:24:53: Epoch [88]   time cost: 1630.29 sec (0.45 h)
+2020-06-15 12:24:53: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0089.pth
+2020-06-15 12:24:53: Start evaluating epoch 88:
+2020-06-15 12:26:32: Epoch [88]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 12:26:32: Start epoch 89, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 12:39:33: Epoch [54]   time cost: 1560.16 sec (0.43 h)
+2020-06-15 12:39:34: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0055.pth
+2020-06-15 12:39:34: Start evaluating epoch 54:
+2020-06-15 12:40:54: Epoch [54]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 12:40:54: Start epoch 55, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 12:41:19: Epoch [79]   time cost: 1572.70 sec (0.44 h)
+2020-06-15 12:41:20: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0080.pth
+2020-06-15 12:41:20: Start evaluating epoch 79:
+2020-06-15 12:42:46: Epoch [79]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 12:42:46: Start epoch 80, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 12:45:47: Epoch [77]   time cost: 1580.28 sec (0.44 h)
+2020-06-15 12:45:48: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0078.pth
+2020-06-15 12:45:48: Start evaluating epoch 77:
+2020-06-15 12:47:18: Epoch [77]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 12:47:18: Start epoch 78, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 12:53:23: Epoch [89]   time cost: 1611.53 sec (0.45 h)
+2020-06-15 12:53:24: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0090.pth
+2020-06-15 12:53:24: Start evaluating epoch 89:
+2020-06-15 12:55:26: Epoch [89]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 12:55:26: Start epoch 90, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 13:07:16: Epoch [55]   time cost: 1581.49 sec (0.44 h)
+2020-06-15 13:07:17: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0056.pth
+2020-06-15 13:07:17: Start evaluating epoch 55:
+2020-06-15 13:08:35: Epoch [55]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 13:08:35: Start epoch 56, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 13:09:03: Epoch [80]   time cost: 1577.44 sec (0.44 h)
+2020-06-15 13:09:04: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0081.pth
+2020-06-15 13:09:04: Start evaluating epoch 80:
+2020-06-15 13:10:41: Epoch [80]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 13:10:41: Start epoch 81, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 13:14:24: Epoch [78]   time cost: 1625.99 sec (0.45 h)
+2020-06-15 13:14:25: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0079.pth
+2020-06-15 13:14:25: Start evaluating epoch 78:
+2020-06-15 13:16:02: Epoch [78]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 13:16:02: Start epoch 79, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 13:22:22: Epoch [90]   time cost: 1616.39 sec (0.45 h)
+2020-06-15 13:22:24: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0091.pth
+2020-06-15 13:22:24: Start evaluating epoch 90:
+2020-06-15 13:24:10: Epoch [90]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 13:24:10: Start epoch 91, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 13:34:55: Epoch [56]   time cost: 1580.11 sec (0.44 h)
+2020-06-15 13:34:56: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0057.pth
+2020-06-15 13:34:56: Start evaluating epoch 56:
+2020-06-15 13:36:16: Epoch [56]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 13:36:16: Start epoch 57, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 13:37:12: Epoch [81]   time cost: 1591.04 sec (0.44 h)
+2020-06-15 13:37:13: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0082.pth
+2020-06-15 13:37:13: Start evaluating epoch 81:
+2020-06-15 13:38:50: Epoch [81]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 13:38:50: Start epoch 82, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 13:43:55: Epoch [79]   time cost: 1673.50 sec (0.46 h)
+2020-06-15 13:43:57: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0080.pth
+2020-06-15 13:43:57: Start evaluating epoch 79:
+2020-06-15 13:45:39: Epoch [79]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 13:45:39: Start epoch 80, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 13:50:38: Epoch [91]   time cost: 1587.98 sec (0.44 h)
+2020-06-15 13:50:40: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0092.pth
+2020-06-15 13:50:40: Start evaluating epoch 91:
+2020-06-15 13:52:52: Epoch [91]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 13:52:52: Start epoch 92, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 14:02:29: Epoch [57]   time cost: 1573.02 sec (0.44 h)
+2020-06-15 14:02:30: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0058.pth
+2020-06-15 14:02:30: Start evaluating epoch 57:
+2020-06-15 14:03:54: Epoch [57]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 14:03:54: Start epoch 58, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 14:05:16: Epoch [82]   time cost: 1586.01 sec (0.44 h)
+2020-06-15 14:05:17: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0083.pth
+2020-06-15 14:05:17: Start evaluating epoch 82:
+2020-06-15 14:06:57: Epoch [82]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 14:06:57: Start epoch 83, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 14:12:23: Epoch [80]   time cost: 1603.42 sec (0.45 h)
+2020-06-15 14:12:24: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0081.pth
+2020-06-15 14:12:24: Start evaluating epoch 80:
+2020-06-15 14:14:04: Epoch [80]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 14:14:04: Start epoch 81, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 14:19:35: Epoch [92]   time cost: 1603.16 sec (0.45 h)
+2020-06-15 14:19:35: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0093.pth
+2020-06-15 14:19:35: Start evaluating epoch 92:
+2020-06-15 14:21:02: Epoch [92]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 14:21:02: Start epoch 93, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 14:29:50: Epoch [58]   time cost: 1555.69 sec (0.43 h)
+2020-06-15 14:29:51: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0059.pth
+2020-06-15 14:29:51: Start evaluating epoch 58:
+2020-06-15 14:31:20: Epoch [58]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 14:31:20: Start epoch 59, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 14:33:00: Epoch [83]   time cost: 1562.60 sec (0.43 h)
+2020-06-15 14:33:01: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0084.pth
+2020-06-15 14:33:01: Start evaluating epoch 83:
+2020-06-15 14:34:46: Epoch [83]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 14:34:46: Start epoch 84, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 14:40:38: Epoch [81]   time cost: 1594.64 sec (0.44 h)
+2020-06-15 14:40:43: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0082.pth
+2020-06-15 14:40:43: Start evaluating epoch 81:
+2020-06-15 14:42:12: Epoch [81]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 14:42:12: Start epoch 82, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 14:48:02: Epoch [93]   time cost: 1620.08 sec (0.45 h)
+2020-06-15 14:48:03: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0094.pth
+2020-06-15 14:48:03: Start evaluating epoch 93:
+2020-06-15 14:49:59: Epoch [93]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 14:49:59: Start epoch 94, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 14:57:31: Epoch [59]   time cost: 1570.99 sec (0.44 h)
+2020-06-15 14:57:31: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0060.pth
+2020-06-15 14:57:31: Start evaluating epoch 59:
+2020-06-15 14:58:54: Epoch [59]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 14:58:54: Start epoch 60, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 15:00:59: Epoch [84]   time cost: 1572.78 sec (0.44 h)
+2020-06-15 15:00:59: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0085.pth
+2020-06-15 15:00:59: Start evaluating epoch 84:
+2020-06-15 15:02:42: Epoch [84]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 15:02:43: Start epoch 85, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 15:08:34: Epoch [82]   time cost: 1582.60 sec (0.44 h)
+2020-06-15 15:08:35: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0083.pth
+2020-06-15 15:08:35: Start evaluating epoch 82:
+2020-06-15 15:10:08: Epoch [82]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 15:10:08: Start epoch 83, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 15:16:44: Epoch [94]   time cost: 1605.45 sec (0.45 h)
+2020-06-15 15:16:45: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0095.pth
+2020-06-15 15:16:45: Start evaluating epoch 94:
+2020-06-15 15:18:25: Epoch [94]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 15:18:25: Start epoch 95, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 15:24:55: Epoch [60]   time cost: 1560.76 sec (0.43 h)
+2020-06-15 15:24:56: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0061.pth
+2020-06-15 15:24:56: Start evaluating epoch 60:
+2020-06-15 15:26:21: Epoch [60]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 15:26:21: Start epoch 61, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 15:28:49: Epoch [85]   time cost: 1566.80 sec (0.44 h)
+2020-06-15 15:28:50: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0086.pth
+2020-06-15 15:28:50: Start evaluating epoch 85:
+2020-06-15 15:30:18: Epoch [85]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 15:30:18: Start epoch 86, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 15:36:19: Epoch [83]   time cost: 1571.09 sec (0.44 h)
+2020-06-15 15:36:20: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0084.pth
+2020-06-15 15:36:20: Start evaluating epoch 83:
+2020-06-15 15:38:13: Epoch [83]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 15:38:13: Start epoch 84, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 15:46:00: Epoch [95]   time cost: 1655.12 sec (0.46 h)
+2020-06-15 15:46:02: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0096.pth
+2020-06-15 15:46:02: Start evaluating epoch 95:
+2020-06-15 15:48:22: Epoch [95]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 15:48:22: Start epoch 96, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 15:53:17: Epoch [61]   time cost: 1616.29 sec (0.45 h)
+2020-06-15 15:53:18: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0062.pth
+2020-06-15 15:53:18: Start evaluating epoch 61:
+2020-06-15 15:54:44: Epoch [61]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 15:54:44: Start epoch 62, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 15:57:11: Epoch [86]   time cost: 1612.93 sec (0.45 h)
+2020-06-15 15:57:12: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0087.pth
+2020-06-15 15:57:12: Start evaluating epoch 86:
+2020-06-15 15:59:09: Epoch [86]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 15:59:09: Start epoch 87, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 16:05:39: Epoch [84]   time cost: 1645.67 sec (0.46 h)
+2020-06-15 16:05:40: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0085.pth
+2020-06-15 16:05:40: Start evaluating epoch 84:
+2020-06-15 16:07:06: Epoch [84]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 16:07:06: Start epoch 85, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 16:16:10: Epoch [96]   time cost: 1668.72 sec (0.46 h)
+2020-06-15 16:16:11: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0097.pth
+2020-06-15 16:16:11: Start evaluating epoch 96:
+2020-06-15 16:17:53: Epoch [96]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 16:17:53: Start epoch 97, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 16:21:00: Epoch [62]   time cost: 1575.49 sec (0.44 h)
+2020-06-15 16:21:00: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0063.pth
+2020-06-15 16:21:00: Start evaluating epoch 62:
+2020-06-15 16:22:20: Epoch [62]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 16:22:20: Start epoch 63, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 16:25:24: Epoch [87]   time cost: 1575.18 sec (0.44 h)
+2020-06-15 16:25:24: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0088.pth
+2020-06-15 16:25:24: Start evaluating epoch 87:
+2020-06-15 16:27:10: Epoch [87]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 16:27:10: Start epoch 88, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 16:33:23: Epoch [85]   time cost: 1576.40 sec (0.44 h)
+2020-06-15 16:33:25: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0086.pth
+2020-06-15 16:33:25: Start evaluating epoch 85:
+2020-06-15 16:35:07: Epoch [85]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 16:35:07: Start epoch 86, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 16:44:39: Epoch [97]   time cost: 1605.78 sec (0.45 h)
+2020-06-15 16:44:39: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0098.pth
+2020-06-15 16:44:39: Start evaluating epoch 97:
+2020-06-15 16:46:15: Epoch [97]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 16:46:15: Start epoch 98, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 16:48:45: Epoch [63]   time cost: 1585.27 sec (0.44 h)
+2020-06-15 16:48:48: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0064.pth
+2020-06-15 16:48:48: Start evaluating epoch 63:
+2020-06-15 16:50:07: Epoch [63]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 16:50:07: Start epoch 64, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 16:54:15: Epoch [88]   time cost: 1625.41 sec (0.45 h)
+2020-06-15 16:54:16: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0089.pth
+2020-06-15 16:54:16: Start evaluating epoch 88:
+2020-06-15 16:55:42: Epoch [88]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 16:55:42: Start epoch 89, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 17:01:49: Epoch [86]   time cost: 1602.03 sec (0.45 h)
+2020-06-15 17:01:50: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0087.pth
+2020-06-15 17:01:50: Start evaluating epoch 86:
+2020-06-15 17:03:31: Epoch [86]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 17:03:31: Start epoch 87, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 17:13:52: Epoch [98]   time cost: 1657.29 sec (0.46 h)
+2020-06-15 17:13:53: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0099.pth
+2020-06-15 17:13:53: Start evaluating epoch 98:
+2020-06-15 17:15:42: Epoch [98]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 17:15:42: Start epoch 99, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 17:16:19: Epoch [64]   time cost: 1572.36 sec (0.44 h)
+2020-06-15 17:16:20: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0065.pth
+2020-06-15 17:16:20: Start evaluating epoch 64:
+2020-06-15 17:17:47: Epoch [64]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 17:17:47: Start epoch 65, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 17:21:52: Epoch [89]   time cost: 1570.09 sec (0.44 h)
+2020-06-15 17:21:53: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0090.pth
+2020-06-15 17:21:53: Start evaluating epoch 89:
+2020-06-15 17:23:25: Epoch [89]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 17:23:25: Start epoch 90, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 17:29:48: Epoch [87]   time cost: 1576.95 sec (0.44 h)
+2020-06-15 17:29:50: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0088.pth
+2020-06-15 17:29:50: Start evaluating epoch 87:
+2020-06-15 17:31:51: Epoch [87]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 17:31:51: Start epoch 88, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 17:43:06: Epoch [99]   time cost: 1643.35 sec (0.46 h)
+2020-06-15 17:43:06: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0100.pth
+2020-06-15 17:43:06: Start evaluating epoch 99:
+2020-06-15 17:44:25: Epoch [65]   time cost: 1598.39 sec (0.44 h)
+2020-06-15 17:44:26: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0066.pth
+2020-06-15 17:44:26: Start evaluating epoch 65:
+2020-06-15 17:45:05: Epoch [99]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69671, ts-top1 = 0.39394, ts-top2 = 1.00000  
+2020-06-15 17:45:05: Optimization done!
+2020-06-15 17:45:46: Epoch [65]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 17:45:46: Start epoch 66, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 17:50:07: Epoch [90]   time cost: 1601.86 sec (0.44 h)
+2020-06-15 17:50:08: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0091.pth
+2020-06-15 17:50:08: Start evaluating epoch 90:
+2020-06-15 17:52:37: Epoch [90]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 17:52:37: Start epoch 91, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 17:59:09: Epoch [88]   time cost: 1637.64 sec (0.45 h)
+2020-06-15 17:59:10: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0089.pth
+2020-06-15 17:59:10: Start evaluating epoch 88:
+2020-06-15 18:01:10: Epoch [88]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 18:01:10: Start epoch 89, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 18:12:55: Epoch [66]   time cost: 1629.35 sec (0.45 h)
+2020-06-15 18:12:56: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0067.pth
+2020-06-15 18:12:56: Start evaluating epoch 66:
+2020-06-15 18:14:22: Epoch [66]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 18:14:22: Start epoch 67, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 18:19:06: Epoch [91]   time cost: 1588.70 sec (0.44 h)
+2020-06-15 18:19:07: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0092.pth
+2020-06-15 18:19:07: Start evaluating epoch 91:
+2020-06-15 18:20:41: Epoch [91]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 18:20:41: Start epoch 92, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 18:28:16: Epoch [89]   time cost: 1625.29 sec (0.45 h)
+2020-06-15 18:28:17: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0090.pth
+2020-06-15 18:28:17: Start evaluating epoch 89:
+2020-06-15 18:29:49: Epoch [89]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 18:29:49: Start epoch 90, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 18:40:29: Epoch [67]   time cost: 1567.21 sec (0.44 h)
+2020-06-15 18:40:30: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0068.pth
+2020-06-15 18:40:30: Start evaluating epoch 67:
+2020-06-15 18:42:01: Epoch [67]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 18:42:01: Start epoch 68, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 18:46:45: Epoch [92]   time cost: 1564.48 sec (0.43 h)
+2020-06-15 18:46:46: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0093.pth
+2020-06-15 18:46:46: Start evaluating epoch 92:
+2020-06-15 18:48:40: Epoch [92]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 18:48:40: Start epoch 93, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 18:56:20: Epoch [90]   time cost: 1591.39 sec (0.44 h)
+2020-06-15 18:56:21: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0091.pth
+2020-06-15 18:56:21: Start evaluating epoch 90:
+2020-06-15 18:58:29: Epoch [90]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 18:58:29: Start epoch 91, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 19:08:21: Epoch [68]   time cost: 1580.32 sec (0.44 h)
+2020-06-15 19:08:22: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0069.pth
+2020-06-15 19:08:22: Start evaluating epoch 68:
+2020-06-15 19:09:45: Epoch [68]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 19:09:45: Start epoch 69, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 19:15:02: Epoch [93]   time cost: 1582.25 sec (0.44 h)
+2020-06-15 19:15:03: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0094.pth
+2020-06-15 19:15:03: Start evaluating epoch 93:
+2020-06-15 19:16:36: Epoch [93]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 19:16:36: Start epoch 94, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 19:25:21: Epoch [91]   time cost: 1611.85 sec (0.45 h)
+2020-06-15 19:25:22: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0092.pth
+2020-06-15 19:25:22: Start evaluating epoch 91:
+2020-06-15 19:27:10: Epoch [91]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 19:27:10: Start epoch 92, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 19:36:01: Epoch [69]   time cost: 1575.58 sec (0.44 h)
+2020-06-15 19:36:01: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0070.pth
+2020-06-15 19:36:01: Start evaluating epoch 69:
+2020-06-15 19:37:35: Epoch [69]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 19:37:35: Start epoch 70, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 19:43:07: Epoch [94]   time cost: 1591.65 sec (0.44 h)
+2020-06-15 19:43:08: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0095.pth
+2020-06-15 19:43:08: Start evaluating epoch 94:
+2020-06-15 19:44:43: Epoch [94]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 19:44:43: Start epoch 95, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 19:54:21: Epoch [92]   time cost: 1630.41 sec (0.45 h)
+2020-06-15 19:54:22: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0093.pth
+2020-06-15 19:54:22: Start evaluating epoch 92:
+2020-06-15 19:56:43: Epoch [92]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 19:56:43: Start epoch 93, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 20:03:52: Epoch [70]   time cost: 1576.72 sec (0.44 h)
+2020-06-15 20:03:52: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0071.pth
+2020-06-15 20:03:52: Start evaluating epoch 70:
+2020-06-15 20:05:16: Epoch [70]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 20:05:16: Start epoch 71, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 20:11:07: Epoch [95]   time cost: 1583.79 sec (0.44 h)
+2020-06-15 20:11:08: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0096.pth
+2020-06-15 20:11:08: Start evaluating epoch 95:
+2020-06-15 20:12:42: Epoch [95]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 20:12:42: Start epoch 96, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 20:23:41: Epoch [93]   time cost: 1617.98 sec (0.45 h)
+2020-06-15 20:23:42: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0094.pth
+2020-06-15 20:23:42: Start evaluating epoch 93:
+2020-06-15 20:25:16: Epoch [93]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 20:25:16: Start epoch 94, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 20:31:16: Epoch [71]   time cost: 1559.97 sec (0.43 h)
+2020-06-15 20:31:17: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0072.pth
+2020-06-15 20:31:17: Start evaluating epoch 71:
+2020-06-15 20:32:47: Epoch [71]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 20:32:47: Start epoch 72, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 20:38:57: Epoch [96]   time cost: 1574.66 sec (0.44 h)
+2020-06-15 20:38:57: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0097.pth
+2020-06-15 20:38:57: Start evaluating epoch 96:
+2020-06-15 20:40:27: Epoch [96]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 20:40:27: Start epoch 97, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 20:52:03: Epoch [94]   time cost: 1606.73 sec (0.45 h)
+2020-06-15 20:52:04: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0095.pth
+2020-06-15 20:52:04: Start evaluating epoch 94:
+2020-06-15 20:53:54: Epoch [94]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 20:53:54: Start epoch 95, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 20:58:46: Epoch [72]   time cost: 1559.28 sec (0.43 h)
+2020-06-15 20:58:47: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0073.pth
+2020-06-15 20:58:47: Start evaluating epoch 72:
+2020-06-15 21:00:10: Epoch [72]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 21:00:10: Start epoch 73, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 21:06:32: Epoch [97]   time cost: 1565.16 sec (0.43 h)
+2020-06-15 21:06:32: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0098.pth
+2020-06-15 21:06:32: Start evaluating epoch 97:
+2020-06-15 21:08:07: Epoch [97]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 21:08:07: Start epoch 98, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 21:20:21: Epoch [95]   time cost: 1586.73 sec (0.44 h)
+2020-06-15 21:20:22: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0096.pth
+2020-06-15 21:20:22: Start evaluating epoch 95:
+2020-06-15 21:22:00: Epoch [95]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 21:22:00: Start epoch 96, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 21:26:17: Epoch [73]   time cost: 1567.18 sec (0.44 h)
+2020-06-15 21:26:18: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0074.pth
+2020-06-15 21:26:18: Start evaluating epoch 73:
+2020-06-15 21:27:41: Epoch [73]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 21:27:41: Start epoch 74, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 21:34:15: Epoch [98]   time cost: 1567.99 sec (0.44 h)
+2020-06-15 21:34:16: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0099.pth
+2020-06-15 21:34:16: Start evaluating epoch 98:
+2020-06-15 21:35:51: Epoch [98]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 21:35:51: Start epoch 99, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 21:48:21: Epoch [96]   time cost: 1581.26 sec (0.44 h)
+2020-06-15 21:48:21: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0097.pth
+2020-06-15 21:48:21: Start evaluating epoch 96:
+2020-06-15 21:50:00: Epoch [96]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 21:50:00: Start epoch 97, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 21:53:42: Epoch [74]   time cost: 1561.28 sec (0.43 h)
+2020-06-15 21:53:43: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0075.pth
+2020-06-15 21:53:43: Start evaluating epoch 74:
+2020-06-15 21:55:01: Epoch [74]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 21:55:01: Start epoch 75, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 22:02:03: Epoch [99]   time cost: 1571.84 sec (0.44 h)
+2020-06-15 22:02:04: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0100.pth
+2020-06-15 22:02:04: Start evaluating epoch 99:
+2020-06-15 22:03:31: Epoch [99]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.68912, ts-top1 = 0.69697, ts-top2 = 1.00000  
+2020-06-15 22:03:31: Optimization done!
+2020-06-15 22:16:40: Epoch [97]   time cost: 1599.36 sec (0.44 h)
+2020-06-15 22:16:40: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0098.pth
+2020-06-15 22:16:40: Start evaluating epoch 97:
+2020-06-15 22:18:28: Epoch [97]  Batch [1]    Speed   0.0 (+ 3) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 22:18:28: Start epoch 98, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 22:21:17: Epoch [75]   time cost: 1576.41 sec (0.44 h)
+2020-06-15 22:21:18: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0076.pth
+2020-06-15 22:21:18: Start evaluating epoch 75:
+2020-06-15 22:22:41: Epoch [75]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 22:22:41: Start epoch 76, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 22:44:47: Epoch [98]   time cost: 1578.74 sec (0.44 h)
+2020-06-15 22:44:48: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0099.pth
+2020-06-15 22:44:48: Start evaluating epoch 98:
+2020-06-15 22:46:17: Epoch [98]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 22:46:17: Start epoch 99, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 22:48:57: Epoch [76]   time cost: 1575.61 sec (0.44 h)
+2020-06-15 22:48:58: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0077.pth
+2020-06-15 22:48:58: Start evaluating epoch 76:
+2020-06-15 22:50:25: Epoch [76]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 22:50:25: Start epoch 77, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 23:12:48: Epoch [99]   time cost: 1590.69 sec (0.44 h)
+2020-06-15 23:12:48: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0100.pth
+2020-06-15 23:12:48: Start evaluating epoch 99:
+2020-06-15 23:14:24: Epoch [99]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69077, ts-top1 = 0.66667, ts-top2 = 1.00000  
+2020-06-15 23:14:24: Optimization done!
+2020-06-15 23:16:35: Epoch [77]   time cost: 1569.91 sec (0.44 h)
+2020-06-15 23:16:36: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0078.pth
+2020-06-15 23:16:36: Start evaluating epoch 77:
+2020-06-15 23:18:04: Epoch [77]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 23:18:04: Start epoch 78, iter stride 4, train steps 0, eval steps: 0
+2020-06-15 23:44:11: Epoch [78]   time cost: 1566.96 sec (0.44 h)
+2020-06-15 23:44:12: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0079.pth
+2020-06-15 23:44:12: Start evaluating epoch 78:
+2020-06-15 23:45:37: Epoch [78]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-15 23:45:37: Start epoch 79, iter stride 4, train steps 0, eval steps: 0
+2020-06-16 00:11:46: Epoch [79]   time cost: 1569.36 sec (0.44 h)
+2020-06-16 00:11:47: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0080.pth
+2020-06-16 00:11:47: Start evaluating epoch 79:
+2020-06-16 00:13:09: Epoch [79]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-16 00:13:09: Start epoch 80, iter stride 4, train steps 0, eval steps: 0
+2020-06-16 00:39:18: Epoch [80]   time cost: 1569.25 sec (0.44 h)
+2020-06-16 00:39:19: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0081.pth
+2020-06-16 00:39:19: Start evaluating epoch 80:
+2020-06-16 00:40:40: Epoch [80]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-16 00:40:40: Start epoch 81, iter stride 4, train steps 0, eval steps: 0
+2020-06-16 01:06:43: Epoch [81]   time cost: 1562.98 sec (0.43 h)
+2020-06-16 01:06:45: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0082.pth
+2020-06-16 01:06:45: Start evaluating epoch 81:
+2020-06-16 01:08:15: Epoch [81]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-16 01:08:15: Start epoch 82, iter stride 4, train steps 0, eval steps: 0
+2020-06-16 01:34:18: Epoch [82]   time cost: 1562.93 sec (0.43 h)
+2020-06-16 01:34:23: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0083.pth
+2020-06-16 01:34:23: Start evaluating epoch 82:
+2020-06-16 01:35:46: Epoch [82]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-16 01:35:46: Start epoch 83, iter stride 4, train steps 0, eval steps: 0
+2020-06-16 02:01:59: Epoch [83]   time cost: 1572.68 sec (0.44 h)
+2020-06-16 02:02:00: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0084.pth
+2020-06-16 02:02:00: Start evaluating epoch 83:
+2020-06-16 02:03:31: Epoch [83]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-16 02:03:31: Start epoch 84, iter stride 4, train steps 0, eval steps: 0
+2020-06-16 02:29:59: Epoch [84]   time cost: 1587.17 sec (0.44 h)
+2020-06-16 02:30:00: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0085.pth
+2020-06-16 02:30:00: Start evaluating epoch 84:
+2020-06-16 02:31:22: Epoch [84]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-16 02:31:22: Start epoch 85, iter stride 4, train steps 0, eval steps: 0
+2020-06-16 02:57:12: Epoch [85]   time cost: 1549.91 sec (0.43 h)
+2020-06-16 02:57:13: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0086.pth
+2020-06-16 02:57:13: Start evaluating epoch 85:
+2020-06-16 02:58:34: Epoch [85]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-16 02:58:34: Start epoch 86, iter stride 4, train steps 0, eval steps: 0
+2020-06-16 03:24:43: Epoch [86]   time cost: 1568.37 sec (0.44 h)
+2020-06-16 03:24:43: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0087.pth
+2020-06-16 03:24:43: Start evaluating epoch 86:
+2020-06-16 03:26:01: Epoch [86]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-16 03:26:01: Start epoch 87, iter stride 4, train steps 0, eval steps: 0
+2020-06-16 03:51:58: Epoch [87]   time cost: 1556.99 sec (0.43 h)
+2020-06-16 03:52:00: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0088.pth
+2020-06-16 03:52:00: Start evaluating epoch 87:
+2020-06-16 03:53:23: Epoch [87]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-16 03:53:23: Start epoch 88, iter stride 4, train steps 0, eval steps: 0
+2020-06-16 04:19:26: Epoch [88]   time cost: 1563.90 sec (0.43 h)
+2020-06-16 04:19:27: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0089.pth
+2020-06-16 04:19:27: Start evaluating epoch 88:
+2020-06-16 04:20:49: Epoch [88]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-16 04:20:49: Start epoch 89, iter stride 4, train steps 0, eval steps: 0
+2020-06-16 04:47:11: Epoch [89]   time cost: 1581.77 sec (0.44 h)
+2020-06-16 04:47:12: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0090.pth
+2020-06-16 04:47:12: Start evaluating epoch 89:
+2020-06-16 04:48:51: Epoch [89]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-16 04:48:51: Start epoch 90, iter stride 4, train steps 0, eval steps: 0
+2020-06-16 05:15:37: Epoch [90]   time cost: 1605.32 sec (0.45 h)
+2020-06-16 05:15:37: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0091.pth
+2020-06-16 05:15:37: Start evaluating epoch 90:
+2020-06-16 05:16:59: Epoch [90]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-16 05:16:59: Start epoch 91, iter stride 4, train steps 0, eval steps: 0
+2020-06-16 05:43:12: Epoch [91]   time cost: 1573.11 sec (0.44 h)
+2020-06-16 05:43:14: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0092.pth
+2020-06-16 05:43:14: Start evaluating epoch 91:
+2020-06-16 05:44:34: Epoch [91]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-16 05:44:34: Start epoch 92, iter stride 4, train steps 0, eval steps: 0
+2020-06-16 06:10:56: Epoch [92]   time cost: 1581.84 sec (0.44 h)
+2020-06-16 06:10:57: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0093.pth
+2020-06-16 06:10:57: Start evaluating epoch 92:
+2020-06-16 06:12:25: Epoch [92]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-16 06:12:25: Start epoch 93, iter stride 4, train steps 0, eval steps: 0
+2020-06-16 06:45:10: Epoch [93]   time cost: 1964.73 sec (0.55 h)
+2020-06-16 06:45:11: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0094.pth
+2020-06-16 06:45:11: Start evaluating epoch 93:
+2020-06-16 06:46:36: Epoch [93]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-16 06:46:36: Start epoch 94, iter stride 4, train steps 0, eval steps: 0
+2020-06-16 07:12:59: Epoch [94]   time cost: 1582.60 sec (0.44 h)
+2020-06-16 07:13:00: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0095.pth
+2020-06-16 07:13:00: Start evaluating epoch 94:
+2020-06-16 07:14:26: Epoch [94]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-16 07:14:26: Start epoch 95, iter stride 4, train steps 0, eval steps: 0
+2020-06-16 07:41:01: Epoch [95]   time cost: 1594.61 sec (0.44 h)
+2020-06-16 07:41:02: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0096.pth
+2020-06-16 07:41:02: Start evaluating epoch 95:
+2020-06-16 07:42:28: Epoch [95]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-16 07:42:28: Start epoch 96, iter stride 4, train steps 0, eval steps: 0
+2020-06-16 08:12:31: Epoch [96]   time cost: 1803.48 sec (0.50 h)
+2020-06-16 08:12:40: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0097.pth
+2020-06-16 08:12:40: Start evaluating epoch 96:
+2020-06-16 08:18:01: Epoch [96]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-16 08:18:01: Start epoch 97, iter stride 4, train steps 0, eval steps: 0
+2020-06-16 08:46:32: Epoch [97]   time cost: 1711.13 sec (0.48 h)
+2020-06-16 08:46:32: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0098.pth
+2020-06-16 08:46:32: Start evaluating epoch 97:
+2020-06-16 08:48:03: Epoch [97]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-16 08:48:03: Start epoch 98, iter stride 4, train steps 0, eval steps: 0
+2020-06-16 09:15:53: Epoch [98]   time cost: 1670.12 sec (0.46 h)
+2020-06-16 09:15:54: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0099.pth
+2020-06-16 09:15:54: Start evaluating epoch 98:
+2020-06-16 09:17:30: Epoch [98]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-16 09:17:30: Start epoch 99, iter stride 4, train steps 0, eval steps: 0
+2020-06-16 09:43:43: Epoch [99]   time cost: 1573.62 sec (0.44 h)
+2020-06-16 09:43:44: Checkpoint (model & optimizer) saved to: ./exps/models/GloRe_brain_ep-0100.pth
+2020-06-16 09:43:44: Start evaluating epoch 99:
+2020-06-16 09:45:23: Epoch [99]  Batch [1]    Speed   0.0 (+ 2) iter/sec  ts-loss-ce = 0.69111, ts-top1 = 0.62500, ts-top2 = 1.00000  
+2020-06-16 09:45:23: Optimization done!
